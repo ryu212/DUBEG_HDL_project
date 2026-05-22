@@ -1,5 +1,5 @@
 Fitter report for UART_SRAM
-Fri May 22 10:13:37 2026
+Fri May 22 10:36:49 2026
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -66,15 +66,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Fri May 22 10:13:37 2026           ;
+; Fitter Status                      ; Successful - Fri May 22 10:36:49 2026           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; UART_SRAM                                       ;
 ; Top-level Entity Name              ; top_test_uart                                   ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C35F672C6                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 392 / 33,216 ( 1 % )                            ;
-;     Total combinational functions  ; 342 / 33,216 ( 1 % )                            ;
+; Total logic elements               ; 400 / 33,216 ( 1 % )                            ;
+;     Total combinational functions  ; 351 / 33,216 ( 1 % )                            ;
 ;     Dedicated logic registers      ; 248 / 33,216 ( < 1 % )                          ;
 ; Total registers                    ; 248                                             ;
 ; Total pins                         ; 89 / 475 ( 19 % )                               ;
@@ -502,8 +502,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 693 ( 0.00 % )     ;
-;     -- Achieved     ; 0 / 693 ( 0.00 % )     ;
+;     -- Requested    ; 0 / 702 ( 0.00 % )     ;
+;     -- Achieved     ; 0 / 702 ( 0.00 % )     ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -526,7 +526,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 690     ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 699     ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 3       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -542,26 +542,26 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 +---------------------------------------------+---------------------------+
 ; Resource                                    ; Usage                     ;
 +---------------------------------------------+---------------------------+
-; Total logic elements                        ; 392 / 33,216 ( 1 % )      ;
-;     -- Combinational with no register       ; 144                       ;
-;     -- Register only                        ; 50                        ;
-;     -- Combinational with a register        ; 198                       ;
+; Total logic elements                        ; 400 / 33,216 ( 1 % )      ;
+;     -- Combinational with no register       ; 152                       ;
+;     -- Register only                        ; 49                        ;
+;     -- Combinational with a register        ; 199                       ;
 ;                                             ;                           ;
 ; Logic element usage by number of LUT inputs ;                           ;
-;     -- 4 input functions                    ; 144                       ;
-;     -- 3 input functions                    ; 53                        ;
-;     -- <=2 input functions                  ; 145                       ;
-;     -- Register only                        ; 50                        ;
+;     -- 4 input functions                    ; 150                       ;
+;     -- 3 input functions                    ; 52                        ;
+;     -- <=2 input functions                  ; 149                       ;
+;     -- Register only                        ; 49                        ;
 ;                                             ;                           ;
 ; Logic elements by mode                      ;                           ;
-;     -- normal mode                          ; 250                       ;
+;     -- normal mode                          ; 259                       ;
 ;     -- arithmetic mode                      ; 92                        ;
 ;                                             ;                           ;
 ; Total registers*                            ; 248 / 34,593 ( < 1 % )    ;
 ;     -- Dedicated logic registers            ; 248 / 33,216 ( < 1 % )    ;
 ;     -- I/O registers                        ; 0 / 1,377 ( 0 % )         ;
 ;                                             ;                           ;
-; Total LABs:  partially or completely used   ; 37 / 2,076 ( 2 % )        ;
+; Total LABs:  partially or completely used   ; 32 / 2,076 ( 2 % )        ;
 ; Virtual pins                                ; 0                         ;
 ; I/O pins                                    ; 89 / 475 ( 19 % )         ;
 ;     -- Clock pins                           ; 1 / 8 ( 13 % )            ;
@@ -577,11 +577,11 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )             ;
 ; CRC blocks                                  ; 0 / 1 ( 0 % )             ;
 ; Average interconnect usage (total/H/V)      ; 0% / 0% / 0%              ;
-; Peak interconnect usage (total/H/V)         ; 1% / 1% / 1%              ;
+; Peak interconnect usage (total/H/V)         ; 3% / 3% / 3%              ;
 ; Maximum fan-out                             ; 249                       ;
 ; Highest non-global fan-out                  ; 35                        ;
-; Total fan-out                               ; 2105                      ;
-; Average fan-out                             ; 2.94                      ;
+; Total fan-out                               ; 2133                      ;
+; Average fan-out                             ; 2.95                      ;
 +---------------------------------------------+---------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -594,25 +594,25 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
-; Total logic elements                        ; 392 / 33216 ( 1 % )   ; 0 / 33216 ( 0 % )              ;
-;     -- Combinational with no register       ; 144                   ; 0                              ;
-;     -- Register only                        ; 50                    ; 0                              ;
-;     -- Combinational with a register        ; 198                   ; 0                              ;
+; Total logic elements                        ; 400 / 33216 ( 1 % )   ; 0 / 33216 ( 0 % )              ;
+;     -- Combinational with no register       ; 152                   ; 0                              ;
+;     -- Register only                        ; 49                    ; 0                              ;
+;     -- Combinational with a register        ; 199                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic element usage by number of LUT inputs ;                       ;                                ;
-;     -- 4 input functions                    ; 144                   ; 0                              ;
-;     -- 3 input functions                    ; 53                    ; 0                              ;
-;     -- <=2 input functions                  ; 145                   ; 0                              ;
-;     -- Register only                        ; 50                    ; 0                              ;
+;     -- 4 input functions                    ; 150                   ; 0                              ;
+;     -- 3 input functions                    ; 52                    ; 0                              ;
+;     -- <=2 input functions                  ; 149                   ; 0                              ;
+;     -- Register only                        ; 49                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
-;     -- normal mode                          ; 250                   ; 0                              ;
+;     -- normal mode                          ; 259                   ; 0                              ;
 ;     -- arithmetic mode                      ; 92                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Total registers                             ; 248                   ; 0                              ;
 ;     -- Dedicated logic registers            ; 248 / 33216 ( < 1 % ) ; 0 / 33216 ( 0 % )              ;
 ;                                             ;                       ;                                ;
-; Total LABs:  partially or completely used   ; 37 / 2076 ( 2 % )     ; 0 / 2076 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 32 / 2076 ( 2 % )     ; 0 / 2076 ( 0 % )               ;
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
 ; I/O pins                                    ; 89                    ; 0                              ;
@@ -630,8 +630,8 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
-;     -- Total Connections                    ; 2105                  ; 0                              ;
-;     -- Registered Connections               ; 911                   ; 0                              ;
+;     -- Total Connections                    ; 2133                  ; 0                              ;
+;     -- Registered Connections               ; 914                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
 ;     -- Top                                  ; 0                     ; 0                              ;
@@ -739,11 +739,11 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ; SRAM_WE_N     ; AE10  ; 8        ; 24           ; 0            ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; UART_TXD      ; B25   ; 5        ; 65           ; 32           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; rx_valid_led  ; Y12   ; 8        ; 29           ; 0            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; state_led[0]  ; G13   ; 4        ; 35           ; 36           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; state_led[1]  ; F13   ; 4        ; 35           ; 36           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; state_led[2]  ; L2    ; 2        ; 0            ; 24           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; state_led[3]  ; AD24  ; 6        ; 65           ; 2            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; tx_busy_led   ; Y15   ; 7        ; 37           ; 0            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; state_led[0]  ; AC2   ; 1        ; 0            ; 5            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; state_led[1]  ; AC1   ; 1        ; 0            ; 5            ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; state_led[2]  ; G2    ; 2        ; 0            ; 28           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; state_led[3]  ; D19   ; 4        ; 53           ; 36           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; tx_busy_led   ; V11   ; 8        ; 29           ; 0            ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
 +---------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
 
@@ -776,14 +776,14 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 +----------+------------------+---------------+--------------+
 ; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
 +----------+------------------+---------------+--------------+
-; 1        ; 0 / 64 ( 0 % )   ; 3.3V          ; --           ;
+; 1        ; 2 / 64 ( 3 % )   ; 3.3V          ; --           ;
 ; 2        ; 4 / 59 ( 7 % )   ; 3.3V          ; --           ;
 ; 3        ; 0 / 56 ( 0 % )   ; 3.3V          ; --           ;
-; 4        ; 2 / 58 ( 3 % )   ; 3.3V          ; --           ;
+; 4        ; 1 / 58 ( 2 % )   ; 3.3V          ; --           ;
 ; 5        ; 4 / 65 ( 6 % )   ; 3.3V          ; --           ;
-; 6        ; 16 / 59 ( 27 % ) ; 3.3V          ; --           ;
-; 7        ; 15 / 58 ( 26 % ) ; 3.3V          ; --           ;
-; 8        ; 51 / 56 ( 91 % ) ; 3.3V          ; --           ;
+; 6        ; 15 / 59 ( 25 % ) ; 3.3V          ; --           ;
+; 7        ; 14 / 58 ( 24 % ) ; 3.3V          ; --           ;
+; 8        ; 52 / 56 ( 93 % ) ; 3.3V          ; --           ;
 +----------+------------------+---------------+--------------+
 
 
@@ -868,8 +868,8 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ; AB24     ; 257        ; 6        ; HEX1[6]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; AB25     ; 263        ; 6        ; HEX2[5]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; AB26     ; 262        ; 6        ; HEX2[4]                                  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; AC1      ; 119        ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; AC2      ; 118        ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; AC1      ; 119        ; 1        ; state_led[1]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; AC2      ; 118        ; 1        ; state_led[0]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; AC3      ; 128        ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; AC4      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; AC5      ; 133        ; 8        ; SRAM_ADDR[2]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
@@ -917,7 +917,7 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ; AD21     ; 238        ; 7        ; LEDR[6]                                  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; AD22     ; 240        ; 7        ; LEDR[4]                                  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; AD23     ; 239        ; 7        ; LEDR[5]                                  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
-; AD24     ; 249        ; 6        ; state_led[3]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; AD24     ; 249        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; AD25     ; 248        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; AD26     ;            ; 6        ; VCCIO6                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; AE1      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -1040,7 +1040,7 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ; D16      ; 415        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; D17      ; 403        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D18      ; 396        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; D19      ; 392        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; D19      ; 392        ; 4        ; state_led[3]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; D20      ; 387        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D21      ; 376        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D22      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -1086,7 +1086,7 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ; F10      ; 462        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F11      ; 454        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F12      ; 440        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; F13      ; 423        ; 4        ; state_led[1]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; F13      ; 423        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F14      ; 425        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F15      ; 409        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F16      ; 408        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -1101,7 +1101,7 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ; F25      ; 350        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F26      ; 349        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G1       ; 30         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; G2       ; 31         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; G2       ; 31         ; 2        ; state_led[2]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; G3       ; 24         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G4       ; 23         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G5       ; 8          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -1112,7 +1112,7 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ; G10      ; 461        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G11      ; 446        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G12      ; 439        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; G13      ; 422        ; 4        ; state_led[0]                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; G13      ; 422        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G14      ; 424        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G15      ; 410        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G16      ; 407        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -1205,7 +1205,7 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ; K25      ; 321        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; K26      ; 320        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; L1       ;            ; 2        ; VCCIO2                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; L2       ; 50         ; 2        ; state_led[2]                             ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; L2       ; 50         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; L3       ; 51         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; L4       ; 44         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; L5       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -1396,7 +1396,7 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ; V8       ;            ; 1        ; VCCIO1                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; V9       ; 142        ; 8        ; SRAM_ADDR[11]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; V10      ; 141        ; 8        ; SRAM_ADDR[10]                            ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
-; V11      ; 177        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; V11      ; 177        ; 8        ; tx_busy_led                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; V12      ;            ; 8        ; VCCIO8                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; V13      ; 176        ; 8        ; HEX0[6]                                  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; V14      ; 175        ; 8        ; HEX0[5]                                  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
@@ -1452,7 +1452,7 @@ The pin-out file can be found in D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UAR
 ; Y12      ; 180        ; 8        ; rx_valid_led                             ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; Y13      ; 193        ; 7        ; LEDR[9]                                  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; Y               ; no       ; Off          ;
 ; Y14      ; 195        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; Y15      ; 196        ; 7        ; tx_busy_led                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; Y15      ; 196        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y16      ; 210        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y17      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; Y18      ; 229        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
@@ -1519,7 +1519,7 @@ Note: User assignments will override these defaults. The user specified values a
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                                                                  ; Library Name ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------------------------------------+--------------+
-; |top_test_uart                            ; 392 (13)    ; 248 (13)                  ; 0 (0)         ; 2048        ; 1    ; 0            ; 0       ; 0         ; 89   ; 0            ; 144 (0)      ; 50 (0)            ; 198 (12)         ; |top_test_uart                                                                                       ; work         ;
+; |top_test_uart                            ; 400 (13)    ; 248 (13)                  ; 0 (0)         ; 2048        ; 1    ; 0            ; 0       ; 0         ; 89   ; 0            ; 152 (0)      ; 49 (0)            ; 199 (12)         ; |top_test_uart                                                                                       ; work         ;
 ;    |hex7seg:hex0_inst|                    ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; |top_test_uart|hex7seg:hex0_inst                                                                     ; work         ;
 ;    |hex7seg:hex1_inst|                    ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; |top_test_uart|hex7seg:hex1_inst                                                                     ; work         ;
 ;    |hex7seg:hex2_inst|                    ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; |top_test_uart|hex7seg:hex2_inst                                                                     ; work         ;
@@ -1528,7 +1528,7 @@ Note: User assignments will override these defaults. The user specified values a
 ;       |baud_rate_gen:brg_inst|            ; 16 (16)     ; 11 (11)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 11 (11)          ; |top_test_uart|uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst                                 ; work         ;
 ;       |uart_rx:rx_inst|                   ; 59 (59)     ; 38 (38)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 21 (21)      ; 7 (7)             ; 31 (31)          ; |top_test_uart|uart_controller:uart_ctrl_inst|uart_rx:rx_inst                                        ; work         ;
 ;       |uart_tx:tx_inst|                   ; 18 (18)     ; 13 (13)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 13 (13)          ; |top_test_uart|uart_controller:uart_ctrl_inst|uart_tx:tx_inst                                        ; work         ;
-;    |uart_rx_packet_new:packet_inst|       ; 185 (185)   ; 98 (98)                   ; 0 (0)         ; 2048        ; 1    ; 0            ; 0       ; 0         ; 0    ; 0            ; 71 (71)      ; 18 (18)           ; 96 (96)          ; |top_test_uart|uart_rx_packet_new:packet_inst                                                        ; work         ;
+;    |uart_rx_packet_new:packet_inst|       ; 193 (193)   ; 98 (98)                   ; 0 (0)         ; 2048        ; 1    ; 0            ; 0       ; 0         ; 0    ; 0            ; 79 (79)      ; 17 (17)           ; 97 (97)          ; |top_test_uart|uart_rx_packet_new:packet_inst                                                        ; work         ;
 ;       |altsyncram:buffer_rtl_0|           ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 2048        ; 1    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |top_test_uart|uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0                                ; work         ;
 ;          |altsyncram_09c1:auto_generated| ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 2048        ; 1    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |top_test_uart|uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0|altsyncram_09c1:auto_generated ; work         ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------------------------------------------------+--------------+
@@ -1659,46 +1659,46 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - uart_rx_packet_new:packet_inst|comb~1                       ; 0                 ; 6       ;
 ;      - uart_rx_packet_new:packet_inst|buffer~33                    ; 0                 ; 6       ;
 ; UART_RXD                                                           ;                   ;         ;
-;      - uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state~11     ; 0                 ; 6       ;
-;      - uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state~13     ; 0                 ; 6       ;
-;      - uart_controller:uart_ctrl_inst|uart_rx:rx_inst|samples[1]~1 ; 0                 ; 6       ;
-;      - uart_controller:uart_ctrl_inst|uart_rx:rx_inst|samples[0]~3 ; 0                 ; 6       ;
-;      - uart_controller:uart_ctrl_inst|uart_rx:rx_inst|samples[2]~4 ; 0                 ; 6       ;
+;      - uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state~11     ; 1                 ; 6       ;
+;      - uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state~13     ; 1                 ; 6       ;
+;      - uart_controller:uart_ctrl_inst|uart_rx:rx_inst|samples[1]~1 ; 1                 ; 6       ;
+;      - uart_controller:uart_ctrl_inst|uart_rx:rx_inst|samples[0]~3 ; 1                 ; 6       ;
+;      - uart_controller:uart_ctrl_inst|uart_rx:rx_inst|samples[2]~4 ; 1                 ; 6       ;
 +--------------------------------------------------------------------+-------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                                      ;
-+------------------------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
-; Name                                                                   ; Location           ; Fan-Out ; Usage         ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+------------------------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50                                                               ; PIN_N2             ; 249     ; Clock         ; yes    ; Global Clock         ; GCLK2            ; --                        ;
-; KEY[1]                                                                 ; PIN_N23            ; 3       ; Clock         ; no     ; --                   ; --               ; --                        ;
-; KEY[1]~clk_delay_ctrl                                                  ; CLKDELAYCTRL_G4    ; 223     ; Async. clear  ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-; sram_packet_writer:sram_writer_inst|current_state.SRAM_WRITE           ; LCFF_X28_Y15_N7    ; 12      ; Sync. load    ; no     ; --                   ; --               ; --                        ;
-; sram_packet_writer:sram_writer_inst|current_state.UPDATE               ; LCFF_X28_Y15_N19   ; 28      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; sram_packet_writer:sram_writer_inst|current_state.WRITE_DATA_1         ; LCFF_X28_Y15_N21   ; 9       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; sram_packet_writer:sram_writer_inst|current_state.WRITE_DATA_2         ; LCFF_X10_Y3_N23    ; 35      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; sram_packet_writer:sram_writer_inst|packet_valid_posedge               ; LCCOMB_X28_Y15_N24 ; 12      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; sram_packet_writer:sram_writer_inst|wr_en                              ; LCFF_X28_Y15_N9    ; 17      ; Output enable ; no     ; --                   ; --               ; --                        ;
-; uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick          ; LCFF_X35_Y18_N3    ; 14      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|uart_tick        ; LCFF_X35_Y18_N9    ; 10      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|data_out[0]~0           ; LCCOMB_X36_Y19_N20 ; 9       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|rx_reg[0]~0             ; LCCOMB_X35_Y19_N22 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state~12                ; LCCOMB_X36_Y19_N26 ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state~15                ; LCCOMB_X36_Y19_N10 ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|valid_timeout_cnt[0]~15 ; LCCOMB_X35_Y16_N0  ; 8       ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
-; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|valid_timeout_cnt[0]~16 ; LCCOMB_X35_Y16_N26 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state~14                ; LCCOMB_X36_Y18_N14 ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|tx_reg[0]~0             ; LCCOMB_X36_Y18_N16 ; 3       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_rx_packet_new:packet_inst|WideOr10~1                              ; LCCOMB_X37_Y15_N18 ; 4       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_rx_packet_new:packet_inst|buffer~33                               ; LCCOMB_X25_Y15_N30 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_rx_packet_new:packet_inst|comb~1                                  ; LCCOMB_X29_Y15_N6  ; 2       ; Write enable  ; no     ; --                   ; --               ; --                        ;
-; uart_rx_packet_new:packet_inst|crc[5]~0                                ; LCCOMB_X25_Y15_N2  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_rx_packet_new:packet_inst|crc_rec[7]~0                            ; LCCOMB_X34_Y15_N18 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[30]~74                      ; LCCOMB_X36_Y15_N10 ; 32      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[30]~75                      ; LCCOMB_X36_Y15_N28 ; 32      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-+------------------------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                                     ;
++------------------------------------------------------------------------+-------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
+; Name                                                                   ; Location          ; Fan-Out ; Usage         ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++------------------------------------------------------------------------+-------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
+; CLOCK_50                                                               ; PIN_N2            ; 249     ; Clock         ; yes    ; Global Clock         ; GCLK2            ; --                        ;
+; KEY[1]                                                                 ; PIN_N23           ; 3       ; Clock         ; no     ; --                   ; --               ; --                        ;
+; KEY[1]~clk_delay_ctrl                                                  ; CLKDELAYCTRL_G4   ; 223     ; Async. clear  ; yes    ; Global Clock         ; GCLK4            ; --                        ;
+; sram_packet_writer:sram_writer_inst|current_state.SRAM_WRITE           ; LCFF_X24_Y5_N31   ; 12      ; Sync. load    ; no     ; --                   ; --               ; --                        ;
+; sram_packet_writer:sram_writer_inst|current_state.UPDATE               ; LCFF_X24_Y5_N19   ; 28      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; sram_packet_writer:sram_writer_inst|current_state.WRITE_DATA_1         ; LCFF_X24_Y5_N21   ; 9       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; sram_packet_writer:sram_writer_inst|current_state.WRITE_DATA_2         ; LCFF_X17_Y2_N23   ; 35      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; sram_packet_writer:sram_writer_inst|packet_valid_posedge               ; LCCOMB_X24_Y5_N16 ; 12      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; sram_packet_writer:sram_writer_inst|wr_en                              ; LCFF_X24_Y5_N9    ; 17      ; Output enable ; no     ; --                   ; --               ; --                        ;
+; uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick          ; LCFF_X32_Y4_N3    ; 14      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|uart_tick        ; LCFF_X32_Y4_N1    ; 10      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|data_out[0]~0           ; LCCOMB_X29_Y7_N24 ; 9       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|rx_reg[0]~0             ; LCCOMB_X29_Y5_N22 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state~12                ; LCCOMB_X29_Y5_N20 ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state~15                ; LCCOMB_X29_Y5_N4  ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|valid_timeout_cnt[0]~15 ; LCCOMB_X27_Y7_N24 ; 8       ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
+; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|valid_timeout_cnt[0]~16 ; LCCOMB_X27_Y7_N26 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state~14                ; LCCOMB_X32_Y5_N14 ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|tx_reg[0]~0             ; LCCOMB_X32_Y5_N8  ; 3       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_rx_packet_new:packet_inst|WideOr6~0                               ; LCCOMB_X30_Y6_N0  ; 6       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_rx_packet_new:packet_inst|buffer~33                               ; LCCOMB_X27_Y5_N6  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_rx_packet_new:packet_inst|comb~1                                  ; LCCOMB_X27_Y6_N20 ; 2       ; Write enable  ; no     ; --                   ; --               ; --                        ;
+; uart_rx_packet_new:packet_inst|crc[5]~0                                ; LCCOMB_X27_Y5_N2  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_rx_packet_new:packet_inst|crc_rec[7]~0                            ; LCCOMB_X29_Y6_N30 ; 10      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[30]~101                     ; LCCOMB_X29_Y6_N6  ; 32      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[30]~74                      ; LCCOMB_X30_Y6_N12 ; 32      ; Sync. clear   ; no     ; --                   ; --               ; --                        ;
++------------------------------------------------------------------------+-------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
@@ -1717,19 +1717,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                                                                               ; Fan-Out ;
 +----------------------------------------------------------------------------------------------------+---------+
 ; sram_packet_writer:sram_writer_inst|current_state.WRITE_DATA_2                                     ; 35      ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[30]~75                                                  ; 32      ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[30]~101                                                 ; 32      ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[30]~74                                                  ; 32      ;
 ; uart_rx_packet_new:packet_inst|state.DATA                                                          ; 32      ;
 ; sram_packet_writer:sram_writer_inst|current_state.UPDATE                                           ; 28      ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|rx_valid                                            ; 18      ;
 ; sram_packet_writer:sram_writer_inst|wr_en                                                          ; 17      ;
-; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state.IDLE                                          ; 16      ;
-; uart_rx_packet_new:packet_inst|Selector4~5                                                         ; 15      ;
+; uart_rx_packet_new:packet_inst|Selector4~5                                                         ; 16      ;
+; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state.IDLE                                          ; 15      ;
 ; uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick                                      ; 14      ;
 ; sram_packet_writer:sram_writer_inst|packet_valid_posedge                                           ; 12      ;
 ; sram_packet_writer:sram_writer_inst|current_state.SRAM_WRITE                                       ; 12      ;
+; uart_rx_packet_new:packet_inst|state.WAIT_SEND                                                     ; 12      ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state.DATA                                          ; 12      ;
-; uart_rx_packet_new:packet_inst|state.WAIT_SEND                                                     ; 11      ;
+; uart_rx_packet_new:packet_inst|crc_rec[7]~0                                                        ; 10      ;
 ; uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|uart_tick                                    ; 10      ;
 ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state.DATA                                          ; 10      ;
 ; uart_rx_packet_new:packet_inst|state.ACK                                                           ; 10      ;
@@ -1746,12 +1747,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_rx_packet_new:packet_inst|buffer~33                                                           ; 8       ;
 ; uart_rx_packet_new:packet_inst|buffer~17                                                           ; 8       ;
 ; uart_rx_packet_new:packet_inst|buffer~0                                                            ; 8       ;
-; uart_rx_packet_new:packet_inst|WideOr6                                                             ; 8       ;
+; uart_rx_packet_new:packet_inst|WideOr2                                                             ; 8       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|rx_reg[0]~0                                         ; 8       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|valid_timeout_cnt[0]~16                             ; 8       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|valid_timeout_cnt[0]~15                             ; 8       ;
-; uart_rx_packet_new:packet_inst|crc_rec[7]~0                                                        ; 8       ;
 ; uart_rx_packet_new:packet_inst|crc[5]~0                                                            ; 8       ;
+; uart_rx_packet_new:packet_inst|state.RECOVERY                                                      ; 8       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|data_out[7]                                         ; 8       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|data_out[5]                                         ; 8       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|data_out[0]                                         ; 8       ;
@@ -1768,7 +1769,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; packet_cnt[1]                                                                                      ; 8       ;
 ; uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_counter[1]                                ; 7       ;
 ; uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_counter[0]                                ; 7       ;
-; uart_rx_packet_new:packet_inst|byte_cnt[0]                                                         ; 7       ;
+; uart_rx_packet_new:packet_inst|Selector3~4                                                         ; 7       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|tick_cnt[1]                                         ; 7       ;
 ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state.STOP                                          ; 7       ;
 ; uart_rx_packet_new:packet_inst|state.IDLE                                                          ; 7       ;
@@ -1779,14 +1780,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_rx_packet_new:packet_inst|byte_cnt[2]                                                         ; 6       ;
 ; uart_rx_packet_new:packet_inst|byte_cnt[3]                                                         ; 6       ;
 ; uart_rx_packet_new:packet_inst|byte_cnt[4]                                                         ; 6       ;
+; uart_rx_packet_new:packet_inst|byte_cnt[0]                                                         ; 6       ;
 ; uart_rx_packet_new:packet_inst|byte_cnt[5]                                                         ; 6       ;
 ; uart_rx_packet_new:packet_inst|byte_cnt[6]                                                         ; 6       ;
 ; uart_rx_packet_new:packet_inst|byte_cnt[7]                                                         ; 6       ;
+; uart_rx_packet_new:packet_inst|WideOr6~0                                                           ; 6       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|Equal4~0                                            ; 6       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|tick_cnt[2]                                         ; 6       ;
 ; UART_RXD                                                                                           ; 5       ;
 ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state.START                                         ; 5       ;
-; uart_rx_packet_new:packet_inst|always0~2                                                           ; 5       ;
 ; uart_rx_packet_new:packet_inst|state.CLEAR_DATA                                                    ; 5       ;
 ; uart_rx_packet_new:packet_inst|crc[6]                                                              ; 5       ;
 ; uart_rx_packet_new:packet_inst|LEDR[16]                                                            ; 5       ;
@@ -1795,7 +1797,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|uart_counter[0]                              ; 4       ;
 ; uart_rx_packet_new:packet_inst|Equal2~4                                                            ; 4       ;
 ; uart_rx_packet_new:packet_inst|crc_temp~0                                                          ; 4       ;
-; uart_rx_packet_new:packet_inst|WideOr10~1                                                          ; 4       ;
+; uart_rx_packet_new:packet_inst|Selector3~11                                                        ; 4       ;
+; uart_rx_packet_new:packet_inst|Selector3~9                                                         ; 4       ;
+; uart_rx_packet_new:packet_inst|Selector3~6                                                         ; 4       ;
+; uart_rx_packet_new:packet_inst|always0~2                                                           ; 4       ;
 ; sram_packet_writer:sram_writer_inst|packet_cnt[0]                                                  ; 4       ;
 ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|bit_cnt[0]                                          ; 4       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state.STOP                                          ; 4       ;
@@ -1804,7 +1809,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_rx_packet_new:packet_inst|crc[3]                                                              ; 4       ;
 ; uart_rx_packet_new:packet_inst|crc[2]                                                              ; 4       ;
 ; uart_rx_packet_new:packet_inst|state.CLEAR_IDLE                                                    ; 4       ;
-; uart_rx_packet_new:packet_inst|state.RECOVERY                                                      ; 4       ;
 ; KEY[1]                                                                                             ; 3       ;
 ; sram_packet_writer:sram_writer_inst|current_state.IDLE                                             ; 3       ;
 ; sram_packet_writer:sram_writer_inst|packet_pd_address_latch[1]                                     ; 3       ;
@@ -1821,7 +1825,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; packet_valid_d                                                                                     ; 3       ;
 ; uart_rx_packet_new:packet_inst|crc_temp~2                                                          ; 3       ;
 ; uart_rx_packet_new:packet_inst|crc_temp~1                                                          ; 3       ;
-; uart_rx_packet_new:packet_inst|state.ACK~2                                                         ; 3       ;
+; uart_rx_packet_new:packet_inst|Selector7~5                                                         ; 3       ;
 ; uart_rx_packet_new:packet_inst|comb~0                                                              ; 3       ;
 ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|bit_cnt[2]                                          ; 3       ;
 ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|bit_cnt[1]                                          ; 3       ;
@@ -1892,21 +1896,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_rx_packet_new:packet_inst|crc_temp~4                                                          ; 2       ;
 ; uart_rx_packet_new:packet_inst|buffer~10                                                           ; 2       ;
 ; uart_rx_packet_new:packet_inst|buffer~9                                                            ; 2       ;
-; uart_rx_packet_new:packet_inst|WideOr7~0                                                           ; 2       ;
+; uart_rx_packet_new:packet_inst|Selector7~12                                                        ; 2       ;
+; uart_rx_packet_new:packet_inst|Selector7~10                                                        ; 2       ;
+; uart_rx_packet_new:packet_inst|Selector7~7                                                         ; 2       ;
+; uart_rx_packet_new:packet_inst|Selector7~6                                                         ; 2       ;
+; uart_rx_packet_new:packet_inst|Selector7~3                                                         ; 2       ;
 ; uart_rx_packet_new:packet_inst|Equal2~5                                                            ; 2       ;
 ; uart_rx_packet_new:packet_inst|Equal2~3                                                            ; 2       ;
-; uart_rx_packet_new:packet_inst|Selector0~0                                                         ; 2       ;
-; uart_rx_packet_new:packet_inst|Selector3~6                                                         ; 2       ;
-; uart_rx_packet_new:packet_inst|Selector3~5                                                         ; 2       ;
+; uart_rx_packet_new:packet_inst|Selector1~1                                                         ; 2       ;
+; uart_rx_packet_new:packet_inst|Selector3~10                                                        ; 2       ;
+; uart_rx_packet_new:packet_inst|Selector7~2                                                         ; 2       ;
 ; uart_rx_packet_new:packet_inst|always0~4                                                           ; 2       ;
 ; uart_rx_packet_new:packet_inst|always0~3                                                           ; 2       ;
-; uart_rx_packet_new:packet_inst|Selector1~0                                                         ; 2       ;
-; uart_rx_packet_new:packet_inst|Selector3~3                                                         ; 2       ;
-; uart_rx_packet_new:packet_inst|Selector3~1                                                         ; 2       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[30]~32                                                  ; 2       ;
-; uart_rx_packet_new:packet_inst|always0~1                                                           ; 2       ;
-; uart_rx_packet_new:packet_inst|always0~0                                                           ; 2       ;
-; uart_rx_packet_new:packet_inst|Selector3~0                                                         ; 2       ;
+; uart_rx_packet_new:packet_inst|Selector3~5                                                         ; 2       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|rx_reg[7]                                           ; 2       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|rx_reg[6]                                           ; 2       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|rx_reg[5]                                           ; 2       ;
@@ -1963,6 +1965,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|Selector5~3                                         ; 1       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|Selector8~3                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector51~2                                                        ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector7~17                                                        ; 1       ;
 ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|Selector11~0                                        ; 1       ;
 ; sram_packet_writer:sram_writer_inst|current_state.FINISH~0                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|tx_data[2]~0                                                        ; 1       ;
@@ -2001,11 +2004,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[9]                                              ; 1       ;
 ; uart_rx_packet_new:packet_inst|buffer~14                                                           ; 1       ;
 ; uart_rx_packet_new:packet_inst|buffer~13                                                           ; 1       ;
-; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[7]                                              ; 1       ;
-; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[5]                                              ; 1       ;
-; uart_rx_packet_new:packet_inst|buffer~12                                                           ; 1       ;
 ; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[1]                                              ; 1       ;
 ; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[3]                                              ; 1       ;
+; uart_rx_packet_new:packet_inst|buffer~12                                                           ; 1       ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[7]                                              ; 1       ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[5]                                              ; 1       ;
 ; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[0]                                              ; 1       ;
 ; uart_rx_packet_new:packet_inst|buffer~11                                                           ; 1       ;
 ; uart_rx_packet_new:packet_inst|buffer~1                                                            ; 1       ;
@@ -2060,7 +2063,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_rx_packet_new:packet_inst|Selector44~0                                                        ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector43~0                                                        ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector42~0                                                        ; 1       ;
-; uart_rx_packet_new:packet_inst|Selector1~1                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector1~3                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector1~2                                                         ; 1       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|voted_bit~0                                         ; 1       ;
 ; sram_packet_writer:sram_writer_inst|packet_cnt[0]~9                                                ; 1       ;
 ; sram_packet_writer:sram_writer_inst|Selector12~0                                                   ; 1       ;
@@ -2096,35 +2100,40 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_rx_packet_new:packet_inst|crc_temp~3                                                          ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector56~0                                                        ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector57~0                                                        ; 1       ;
-; uart_rx_packet_new:packet_inst|Selector7~0                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector7~16                                                        ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector7~15                                                        ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[30]~73                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[30]~72                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[30]~71                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector9~2                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector9~1                                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector9~0                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector5~2                                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector5~1                                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector5~0                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|Selector3~7                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|state.ACK~10                                                        ; 1       ;
-; uart_rx_packet_new:packet_inst|state.ACK~9                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|state.ACK~8                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|state.ACK~7                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|state.ACK~6                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|state.ACK~5                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|state.ACK~4                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|state.ACK~3                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|state.ACK~1                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|state.ACK~0                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector3~13                                                        ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector3~12                                                        ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector7~14                                                        ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector7~13                                                        ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector7~11                                                        ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector7~9                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector7~8                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector7~4                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|LessThan0~4                                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|Equal2~2                                                            ; 1       ;
 ; uart_rx_packet_new:packet_inst|Equal2~1                                                            ; 1       ;
 ; uart_rx_packet_new:packet_inst|Equal2~0                                                            ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector0~1                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|Selector8~2                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|Selector3~4                                                         ; 1       ;
-; uart_rx_packet_new:packet_inst|Selector3~2                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector0~0                                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector8~1                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector1~0                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector3~8                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector3~7                                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector8~0                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|always0~1                                                           ; 1       ;
+; uart_rx_packet_new:packet_inst|always0~0                                                           ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector4~6                                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector2~0                                                         ; 1       ;
+; uart_rx_packet_new:packet_inst|Selector6~1                                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector6~0                                                         ; 1       ;
 ; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|rx_reg[0]                                           ; 1       ;
 ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state~13                                            ; 1       ;
@@ -2177,10 +2186,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart_rx_packet_new:packet_inst|Selector4~1                                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|Selector4~0                                                         ; 1       ;
 ; uart_rx_packet_new:packet_inst|LEDR[12]                                                            ; 1       ;
-; uart_rx_packet_new:packet_inst|WideOr10~0                                                          ; 1       ;
-; uart_rx_packet_new:packet_inst|WideOr11~0                                                          ; 1       ;
-; uart_rx_packet_new:packet_inst|WideOr12                                                            ; 1       ;
-; uart_rx_packet_new:packet_inst|WideOr12~0                                                          ; 1       ;
+; uart_rx_packet_new:packet_inst|WideOr6                                                             ; 1       ;
+; uart_rx_packet_new:packet_inst|WideOr7~0                                                           ; 1       ;
+; uart_rx_packet_new:packet_inst|WideOr8                                                             ; 1       ;
+; uart_rx_packet_new:packet_inst|WideOr8~0                                                           ; 1       ;
 ; sram_packet_writer:sram_writer_inst|addr_latch[6]                                                  ; 1       ;
 ; sram_packet_writer:sram_writer_inst|addr_latch[5]                                                  ; 1       ;
 ; sram_packet_writer:sram_writer_inst|addr_latch[4]                                                  ; 1       ;
@@ -2309,69 +2318,69 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; packet_cnt[2]~14                                                                                   ; 1       ;
 ; packet_cnt[1]~13                                                                                   ; 1       ;
 ; packet_cnt[1]~12                                                                                   ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[31]~100                                                 ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[30]~99                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[31]~99                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[30]~98                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[29]~97                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[30]~97                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[29]~96                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[28]~95                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[29]~95                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[28]~94                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[27]~93                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[28]~93                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[27]~92                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[26]~91                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[27]~91                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[26]~90                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[25]~89                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[26]~89                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[25]~88                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[24]~87                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[25]~87                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[24]~86                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[23]~85                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[24]~85                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[23]~84                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[22]~83                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[23]~83                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[22]~82                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[21]~81                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[22]~81                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[21]~80                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[20]~79                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[21]~79                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[20]~78                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[19]~77                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[20]~77                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[19]~76                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[19]~75                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[18]~71                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[18]~70                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[18]~69                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[17]~69                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[17]~68                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[17]~67                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[16]~67                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[16]~66                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[16]~65                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[15]~65                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[15]~64                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[15]~63                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[14]~63                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[14]~62                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[14]~61                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[13]~61                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[13]~60                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[13]~59                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[12]~59                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[12]~58                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[12]~57                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[11]~57                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[11]~56                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[11]~55                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[10]~55                                                  ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[10]~54                                                  ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[10]~53                                                  ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[9]~53                                                   ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[9]~52                                                   ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[9]~51                                                   ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[8]~51                                                   ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[8]~50                                                   ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[8]~49                                                   ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[7]~49                                                   ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[7]~48                                                   ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[7]~47                                                   ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[6]~47                                                   ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[6]~46                                                   ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[6]~45                                                   ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[5]~45                                                   ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[5]~44                                                   ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[5]~43                                                   ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[4]~43                                                   ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[4]~42                                                   ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[4]~41                                                   ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[3]~41                                                   ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[3]~40                                                   ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[3]~39                                                   ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[2]~39                                                   ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[2]~38                                                   ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[2]~37                                                   ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[1]~37                                                   ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[1]~36                                                   ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[1]~35                                                   ; 1       ;
+; uart_rx_packet_new:packet_inst|timeout_cnt[0]~35                                                   ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[0]~34                                                   ; 1       ;
-; uart_rx_packet_new:packet_inst|timeout_cnt[0]~33                                                   ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[0]                                                      ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[1]                                                      ; 1       ;
 ; uart_rx_packet_new:packet_inst|timeout_cnt[2]                                                      ; 1       ;
@@ -2411,13 +2420,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
-+--------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+-------------+----------------------+-----------------+-----------------+
-; Name                                                                                             ; Type ; Mode             ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M4Ks ; MIF  ; Location    ; Mixed Width RDW Mode ; Port A RDW Mode ; Port B RDW Mode ;
-+--------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+-------------+----------------------+-----------------+-----------------+
-; uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0|altsyncram_09c1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 256          ; 8            ; 256          ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 2048 ; 256                         ; 8                           ; 256                         ; 8                           ; 2048                ; 1    ; None ; M4K_X26_Y15 ; Don't care           ; Don't care      ; Don't care      ;
-+--------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+-------------+----------------------+-----------------+-----------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ;
++--------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+------------+----------------------+-----------------+-----------------+
+; Name                                                                                             ; Type ; Mode             ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M4Ks ; MIF  ; Location   ; Mixed Width RDW Mode ; Port A RDW Mode ; Port B RDW Mode ;
++--------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+------------+----------------------+-----------------+-----------------+
+; uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0|altsyncram_09c1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 256          ; 8            ; 256          ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 2048 ; 256                         ; 8                           ; 256                         ; 8                           ; 2048                ; 1    ; None ; M4K_X26_Y5 ; Don't care           ; Don't care      ; Don't care      ;
++--------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+------------+----------------------+-----------------+-----------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
 
@@ -2426,49 +2435,49 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +-----------------------------+------------------------+
 ; Other Routing Resource Type ; Usage                  ;
 +-----------------------------+------------------------+
-; Block interconnects         ; 432 / 94,460 ( < 1 % ) ;
-; C16 interconnects           ; 11 / 3,315 ( < 1 % )   ;
-; C4 interconnects            ; 265 / 60,840 ( < 1 % ) ;
-; Direct links                ; 120 / 94,460 ( < 1 % ) ;
+; Block interconnects         ; 460 / 94,460 ( < 1 % ) ;
+; C16 interconnects           ; 7 / 3,315 ( < 1 % )    ;
+; C4 interconnects            ; 212 / 60,840 ( < 1 % ) ;
+; Direct links                ; 138 / 94,460 ( < 1 % ) ;
 ; Global clocks               ; 2 / 16 ( 13 % )        ;
-; Local interconnects         ; 249 / 33,216 ( < 1 % ) ;
-; R24 interconnects           ; 21 / 3,091 ( < 1 % )   ;
-; R4 interconnects            ; 360 / 81,294 ( < 1 % ) ;
+; Local interconnects         ; 261 / 33,216 ( < 1 % ) ;
+; R24 interconnects           ; 25 / 3,091 ( < 1 % )   ;
+; R4 interconnects            ; 352 / 81,294 ( < 1 % ) ;
 +-----------------------------+------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 10.59) ; Number of LABs  (Total = 37) ;
+; Number of Logic Elements  (Average = 12.50) ; Number of LABs  (Total = 32) ;
 +---------------------------------------------+------------------------------+
-; 1                                           ; 7                            ;
-; 2                                           ; 1                            ;
-; 3                                           ; 1                            ;
-; 4                                           ; 0                            ;
+; 1                                           ; 0                            ;
+; 2                                           ; 2                            ;
+; 3                                           ; 0                            ;
+; 4                                           ; 2                            ;
 ; 5                                           ; 1                            ;
 ; 6                                           ; 0                            ;
-; 7                                           ; 3                            ;
-; 8                                           ; 0                            ;
+; 7                                           ; 2                            ;
+; 8                                           ; 1                            ;
 ; 9                                           ; 0                            ;
 ; 10                                          ; 0                            ;
-; 11                                          ; 3                            ;
-; 12                                          ; 0                            ;
-; 13                                          ; 3                            ;
-; 14                                          ; 2                            ;
-; 15                                          ; 2                            ;
-; 16                                          ; 14                           ;
+; 11                                          ; 1                            ;
+; 12                                          ; 1                            ;
+; 13                                          ; 2                            ;
+; 14                                          ; 1                            ;
+; 15                                          ; 6                            ;
+; 16                                          ; 13                           ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 1.89) ; Number of LABs  (Total = 37) ;
+; LAB-wide Signals  (Average = 2.22) ; Number of LABs  (Total = 32) ;
 +------------------------------------+------------------------------+
-; 1 Async. clear                     ; 25                           ;
-; 1 Clock                            ; 28                           ;
-; 1 Clock enable                     ; 11                           ;
+; 1 Async. clear                     ; 26                           ;
+; 1 Clock                            ; 27                           ;
+; 1 Clock enable                     ; 12                           ;
 ; 1 Sync. clear                      ; 2                            ;
 ; 1 Sync. load                       ; 1                            ;
 ; 2 Clock enables                    ; 3                            ;
@@ -2478,37 +2487,37 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 16.73) ; Number of LABs  (Total = 37) ;
+; Number of Signals Sourced  (Average = 19.59) ; Number of LABs  (Total = 32) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 6                            ;
+; 1                                            ; 0                            ;
 ; 2                                            ; 1                            ;
-; 3                                            ; 0                            ;
+; 3                                            ; 1                            ;
 ; 4                                            ; 1                            ;
-; 5                                            ; 0                            ;
-; 6                                            ; 1                            ;
-; 7                                            ; 4                            ;
-; 8                                            ; 0                            ;
+; 5                                            ; 1                            ;
+; 6                                            ; 0                            ;
+; 7                                            ; 2                            ;
+; 8                                            ; 1                            ;
 ; 9                                            ; 0                            ;
 ; 10                                           ; 0                            ;
 ; 11                                           ; 0                            ;
 ; 12                                           ; 0                            ;
 ; 13                                           ; 0                            ;
-; 14                                           ; 0                            ;
-; 15                                           ; 1                            ;
-; 16                                           ; 0                            ;
-; 17                                           ; 0                            ;
+; 14                                           ; 1                            ;
+; 15                                           ; 0                            ;
+; 16                                           ; 1                            ;
+; 17                                           ; 1                            ;
 ; 18                                           ; 0                            ;
 ; 19                                           ; 1                            ;
-; 20                                           ; 1                            ;
-; 21                                           ; 4                            ;
-; 22                                           ; 2                            ;
-; 23                                           ; 3                            ;
-; 24                                           ; 2                            ;
+; 20                                           ; 2                            ;
+; 21                                           ; 1                            ;
+; 22                                           ; 0                            ;
+; 23                                           ; 4                            ;
+; 24                                           ; 3                            ;
 ; 25                                           ; 3                            ;
 ; 26                                           ; 1                            ;
-; 27                                           ; 3                            ;
-; 28                                           ; 1                            ;
+; 27                                           ; 5                            ;
+; 28                                           ; 0                            ;
 ; 29                                           ; 0                            ;
 ; 30                                           ; 0                            ;
 ; 31                                           ; 0                            ;
@@ -2519,60 +2528,61 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 7.08) ; Number of LABs  (Total = 37) ;
+; Number of Signals Sourced Out  (Average = 8.25) ; Number of LABs  (Total = 32) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 9                            ;
-; 2                                               ; 2                            ;
-; 3                                               ; 0                            ;
+; 1                                               ; 4                            ;
+; 2                                               ; 3                            ;
+; 3                                               ; 1                            ;
 ; 4                                               ; 1                            ;
 ; 5                                               ; 1                            ;
 ; 6                                               ; 1                            ;
-; 7                                               ; 6                            ;
-; 8                                               ; 4                            ;
-; 9                                               ; 1                            ;
-; 10                                              ; 1                            ;
+; 7                                               ; 4                            ;
+; 8                                               ; 3                            ;
+; 9                                               ; 0                            ;
+; 10                                              ; 2                            ;
 ; 11                                              ; 4                            ;
 ; 12                                              ; 2                            ;
 ; 13                                              ; 1                            ;
-; 14                                              ; 2                            ;
+; 14                                              ; 0                            ;
 ; 15                                              ; 0                            ;
-; 16                                              ; 2                            ;
+; 16                                              ; 4                            ;
+; 17                                              ; 0                            ;
+; 18                                              ; 0                            ;
+; 19                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
 
 
-+----------------------------------------------------------------------------+
-; LAB Distinct Inputs                                                        ;
-+---------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 8.57) ; Number of LABs  (Total = 37) ;
-+---------------------------------------------+------------------------------+
-; 0                                           ; 0                            ;
-; 1                                           ; 0                            ;
-; 2                                           ; 3                            ;
-; 3                                           ; 2                            ;
-; 4                                           ; 10                           ;
-; 5                                           ; 5                            ;
-; 6                                           ; 2                            ;
-; 7                                           ; 2                            ;
-; 8                                           ; 2                            ;
-; 9                                           ; 0                            ;
-; 10                                          ; 0                            ;
-; 11                                          ; 0                            ;
-; 12                                          ; 1                            ;
-; 13                                          ; 1                            ;
-; 14                                          ; 0                            ;
-; 15                                          ; 1                            ;
-; 16                                          ; 2                            ;
-; 17                                          ; 1                            ;
-; 18                                          ; 0                            ;
-; 19                                          ; 2                            ;
-; 20                                          ; 0                            ;
-; 21                                          ; 0                            ;
-; 22                                          ; 1                            ;
-; 23                                          ; 0                            ;
-; 24                                          ; 1                            ;
-; 25                                          ; 1                            ;
-+---------------------------------------------+------------------------------+
++-----------------------------------------------------------------------------+
+; LAB Distinct Inputs                                                         ;
++----------------------------------------------+------------------------------+
+; Number of Distinct Inputs  (Average = 10.22) ; Number of LABs  (Total = 32) ;
++----------------------------------------------+------------------------------+
+; 0                                            ; 0                            ;
+; 1                                            ; 0                            ;
+; 2                                            ; 1                            ;
+; 3                                            ; 1                            ;
+; 4                                            ; 6                            ;
+; 5                                            ; 4                            ;
+; 6                                            ; 2                            ;
+; 7                                            ; 1                            ;
+; 8                                            ; 2                            ;
+; 9                                            ; 2                            ;
+; 10                                           ; 1                            ;
+; 11                                           ; 0                            ;
+; 12                                           ; 1                            ;
+; 13                                           ; 0                            ;
+; 14                                           ; 1                            ;
+; 15                                           ; 1                            ;
+; 16                                           ; 1                            ;
+; 17                                           ; 2                            ;
+; 18                                           ; 1                            ;
+; 19                                           ; 1                            ;
+; 20                                           ; 0                            ;
+; 21                                           ; 2                            ;
+; 22                                           ; 1                            ;
+; 23                                           ; 1                            ;
++----------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------------+
@@ -3009,7 +3019,7 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X33_Y12 to location X43_Y23
+    Info (170196): Router estimated peak interconnect usage is 3% of the available device resources in the region that extends from location X22_Y0 to location X32_Y11
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
@@ -3112,8 +3122,8 @@ Warning (169174): The Reserve All Unused Pins setting has not been specified, an
 Info (144001): Generated suppressed messages file D:/CE213_LAB/LongPV/DUBEG_HDL_project/Merge_UART_SRAM_implement_count_1/output_files/UART_SRAM.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 350 warnings
     Info: Peak virtual memory: 4892 megabytes
-    Info: Processing ended: Fri May 22 10:13:37 2026
-    Info: Elapsed time: 00:00:08
+    Info: Processing ended: Fri May 22 10:36:49 2026
+    Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:03
 
 

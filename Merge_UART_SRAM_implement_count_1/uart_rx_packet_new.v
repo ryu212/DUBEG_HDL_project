@@ -82,7 +82,8 @@ module uart_rx_packet_new
 
             CLEAR_DATA:
             begin
-                next_state = DATA;
+                if(!rx_valid)
+                    next_state = DATA;
             end
 
             DATA:
@@ -97,7 +98,8 @@ module uart_rx_packet_new
 
             CLEAR_CRC:
             begin
-                next_state = REC_CRC8;
+                if(!rx_valid)
+                    next_state = REC_CRC8;
             end
 
             REC_CRC8:
@@ -141,7 +143,8 @@ module uart_rx_packet_new
 
             CLEAR_IDLE:
             begin
-                next_state = IDLE;
+                if(!rx_valid)
+                    next_state = IDLE;
             end
 
             default:
