@@ -23,6 +23,7 @@ module uart_controller(
     );
 
     uart_tx tx_inst (
+        .clk_50m(clk_50m),
         .uart_tick(uart_tick_net),
 		  .rst_n(rst_n),
         .tx_start(tx_start),
@@ -32,6 +33,7 @@ module uart_controller(
     );
 
     uart_rx rx_inst (
+        .clk_50m(clk_50m),
         .ov_tick(ov_tick_net),
 		  .rst_n(rst_n),
         .rx(rx),

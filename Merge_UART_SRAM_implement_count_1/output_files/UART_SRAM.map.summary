@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Fri May 22 08:42:56 2026
+Analysis & Synthesis Status : Successful - Fri May 22 10:13:28 2026
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : UART_SRAM
 Top-level Entity Name : top_test_uart
 Family : Cyclone II
-Total logic elements : 419
-    Total combinational functions : 339
-    Dedicated logic registers : 247
-Total registers : 247
+Total logic elements : 422
+    Total combinational functions : 341
+    Dedicated logic registers : 248
+Total registers : 248
 Total pins : 89
 Total virtual pins : 0
 Total memory bits : 2,048

@@ -112,6 +112,7 @@ module top_test_uart (
     uart_rx_packet_new packet_inst
 	(
 		 .CLOCK50          (CLOCK_50),
+		 .rst_n            (rst_n),
 		 .rx_valid         (rx_valid),
 		 .rx_data          (rx_data),
 		 .tx_busy          (tx_busy),

@@ -1,4 +1,5 @@
 module uart_tx(
+    input  wire       clk_50m,
     input  wire       uart_tick,
 	 input  wire 		 rst_n, 
     input  wire       tx_start,
@@ -11,22 +12,16 @@ module uart_tx(
                START = 2'b01,
                DATA  = 2'b10,
                STOP  = 2'b11;
-	 // ------------------------
-	 parameter TIMEOUT_MAX = 8'd20;	
-    reg [7:0] timeout_cnt = 8'd0;
-    reg [2:0] bit_cnt_prev = 3'd0;	 
-	 // ------------------------
-    
     reg [1:0] state = IDLE;
 	 reg [1:0] next_state = IDLE;
     reg [7:0] tx_reg = 8'b0;
     reg [2:0] bit_cnt = 3'd0;
 
-    always @(posedge uart_tick or negedge rst_n)
+    always @(posedge clk_50m or negedge rst_n)
 		begin
 			 if(!rst_n)
 				  state <= IDLE;
-			 else
+			 else if(uart_tick)
 				  state <= next_state;
 		end
 
@@ -41,16 +36,14 @@ module uart_tx(
     end
 
     // output + datapath
-    always @(posedge uart_tick or negedge rst_n) begin
+    always @(posedge clk_50m or negedge rst_n) begin
 			if(!rst_n) begin
 				 tx       <= 1'b1;
 				 tx_reg   <= 8'd0;
 				 bit_cnt  <= 3'd0;
-				 timeout_cnt <= 8'd0;
-             bit_cnt_prev <= 3'd0;
 
 			end
-			else begin
+			else if(uart_tick) begin
         case(state)
             IDLE: begin
                 tx <= 1'b1;
