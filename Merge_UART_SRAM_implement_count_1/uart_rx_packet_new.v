@@ -25,8 +25,10 @@ module uart_rx_packet_new
     localparam ACK         = 4'd7;
     localparam WAIT_SEND   = 4'd8;
     localparam CLEAR_IDLE  = 4'd9;
+    localparam DRAIN_RX    = 4'd10;
 
-    localparam TIMEOUT_MAX = 32'd250000;
+    localparam TIMEOUT_MAX    = 32'd5000000;  // 100 ms @ 50 MHz
+    localparam DRAIN_IDLE_MAX = 32'd1000000;  // 20 ms @ 50 MHz
 
     reg [3:0]  state;
     reg [3:0]  next_state;
@@ -34,12 +36,16 @@ module uart_rx_packet_new
     reg [7:0]  crc_rec;
     reg [7:0]  byte_cnt;
     reg [31:0] timeout_cnt;
+    reg [31:0] drain_cnt;
+    reg        nack_response;
     reg [7:0]  buffer [0:255];
 
     wire timeout;
+    wire drain_done;
     wire [7:0] crc_calc;
 
     assign timeout = (timeout_cnt >= TIMEOUT_MAX);
+    assign drain_done = (drain_cnt >= DRAIN_IDLE_MAX);
     assign crc_calc = crc;
     assign packet_pd_data = buffer[packet_pd_address];
 
@@ -135,10 +141,20 @@ module uart_rx_packet_new
 
             WAIT_SEND:
             begin
-                if(!tx_busy)
+                if(!tx_busy && nack_response)
+                    next_state = DRAIN_RX;
+                else if(!tx_busy)
                     next_state = CLEAR_IDLE;
                 else if(timeout)
                     next_state = CLEAR_IDLE;
+            end
+
+            DRAIN_RX:
+            begin
+                if(rx_valid)
+                    next_state = DRAIN_RX;
+                else if(drain_done)
+                    next_state = IDLE;
             end
 
             CLEAR_IDLE:
@@ -163,6 +179,8 @@ module uart_rx_packet_new
             crc_rec      <= 8'd0;
             byte_cnt     <= 8'd0;
             timeout_cnt  <= 32'd0;
+            drain_cnt    <= 32'd0;
+            nack_response <= 1'b0;
             rx_clear     <= 1'b0;
             tx_start     <= 1'b0;
             tx_data      <= 8'd0;
@@ -176,6 +194,8 @@ module uart_rx_packet_new
                 IDLE:
                 begin
                     timeout_cnt  <= 32'd0;
+                    drain_cnt    <= 32'd0;
+                    nack_response <= 1'b0;
                     byte_cnt     <= 8'd0;
                     rx_clear     <= 1'b0;
                     tx_start     <= 1'b0;
@@ -241,6 +261,8 @@ module uart_rx_packet_new
                 begin
                     timeout_cnt  <= 32'd0;
                     byte_cnt     <= 8'd0;
+                    drain_cnt    <= 32'd0;
+                    nack_response <= 1'b1;
                     rx_clear     <= 1'b0;
                     tx_start     <= 1'b0;
                     packet_valid <= 1'b0;
@@ -254,6 +276,8 @@ module uart_rx_packet_new
                         timeout_cnt <= 32'd0;
 
                     byte_cnt     <= 8'd0;
+                    drain_cnt    <= 32'd0;
+                    nack_response <= 1'b1;
                     rx_clear     <= 1'b0;
                     tx_start     <= 1'b1;
                     tx_data      <= 8'h15;
@@ -268,6 +292,8 @@ module uart_rx_packet_new
                         timeout_cnt <= 32'd0;
 
                     byte_cnt     <= 8'd0;
+                    drain_cnt    <= 32'd0;
+                    nack_response <= 1'b0;
                     rx_clear     <= 1'b0;
                     tx_start     <= 1'b1;
                     tx_data      <= 8'h06;
@@ -286,10 +312,36 @@ module uart_rx_packet_new
                     packet_valid <= 1'b0;
                 end
 
+                DRAIN_RX:
+                begin
+                    timeout_cnt  <= 32'd0;
+                    byte_cnt     <= 8'd0;
+                    tx_start     <= 1'b0;
+                    packet_valid <= 1'b0;
+                    nack_response <= 1'b0;
+
+                    if(rx_valid)
+                    begin
+                        drain_cnt <= 32'd0;
+                        rx_clear  <= 1'b1;
+                    end
+                    else if(!drain_done)
+                    begin
+                        drain_cnt <= drain_cnt + 32'd1;
+                        rx_clear  <= 1'b0;
+                    end
+                    else
+                    begin
+                        rx_clear  <= 1'b0;
+                    end
+                end
+
                 CLEAR_IDLE:
                 begin
                     timeout_cnt  <= 32'd0;
                     byte_cnt     <= 8'd0;
+                    drain_cnt    <= 32'd0;
+                    nack_response <= 1'b0;
                     rx_clear     <= 1'b1;
                     tx_start     <= 1'b0;
                     packet_valid <= 1'b0;
@@ -300,6 +352,8 @@ module uart_rx_packet_new
                     state        <= IDLE;
                     timeout_cnt  <= 32'd0;
                     byte_cnt     <= 8'd0;
+                    drain_cnt    <= 32'd0;
+                    nack_response <= 1'b0;
                     rx_clear     <= 1'b0;
                     tx_start     <= 1'b0;
                     packet_valid <= 1'b0;

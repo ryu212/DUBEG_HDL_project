@@ -9,17 +9,18 @@ current_state.UPDATE 0 1 0 0 0 1
 current_state.FINISH 1 0 0 0 0 1 
 
 State Machine - |top_test_uart|uart_rx_packet_new:packet_inst|state
-Name state.CLEAR_IDLE state.WAIT_SEND state.ACK state.NACK state.RECOVERY state.REC_CRC8 state.CLEAR_CRC state.DATA state.CLEAR_DATA state.IDLE 
-state.IDLE 0 0 0 0 0 0 0 0 0 0 
-state.CLEAR_DATA 0 0 0 0 0 0 0 0 1 1 
-state.DATA 0 0 0 0 0 0 0 1 0 1 
-state.CLEAR_CRC 0 0 0 0 0 0 1 0 0 1 
-state.REC_CRC8 0 0 0 0 0 1 0 0 0 1 
-state.RECOVERY 0 0 0 0 1 0 0 0 0 1 
-state.NACK 0 0 0 1 0 0 0 0 0 1 
-state.ACK 0 0 1 0 0 0 0 0 0 1 
-state.WAIT_SEND 0 1 0 0 0 0 0 0 0 1 
-state.CLEAR_IDLE 1 0 0 0 0 0 0 0 0 1 
+Name state.DRAIN_RX state.CLEAR_IDLE state.WAIT_SEND state.ACK state.NACK state.RECOVERY state.REC_CRC8 state.CLEAR_CRC state.DATA state.CLEAR_DATA state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 0 
+state.CLEAR_DATA 0 0 0 0 0 0 0 0 0 1 1 
+state.DATA 0 0 0 0 0 0 0 0 1 0 1 
+state.CLEAR_CRC 0 0 0 0 0 0 0 1 0 0 1 
+state.REC_CRC8 0 0 0 0 0 0 1 0 0 0 1 
+state.RECOVERY 0 0 0 0 0 1 0 0 0 0 1 
+state.NACK 0 0 0 0 1 0 0 0 0 0 1 
+state.ACK 0 0 0 1 0 0 0 0 0 0 1 
+state.WAIT_SEND 0 0 1 0 0 0 0 0 0 0 1 
+state.CLEAR_IDLE 0 1 0 0 0 0 0 0 0 0 1 
+state.DRAIN_RX 1 0 0 0 0 0 0 0 0 0 1 
 
 State Machine - |top_test_uart|uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state
 Name state.STOP state.DATA state.START state.IDLE 

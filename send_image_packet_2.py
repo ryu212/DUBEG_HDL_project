@@ -153,13 +153,10 @@ def send_packet_with_retry(
         # clear stale RX
         ser.reset_input_buffer()
 
-        # send packet
-        for b in packet:
-
-            ser.write(bytes([b]))
-            ser.flush()
-
-            time.sleep(0.001)
+        # send packet in one burst so the FPGA does not see OS scheduling
+        # gaps between bytes as an in-packet timeout.
+        ser.write(packet)
+        ser.flush()
 
         # wait response
         resp = wait_ack(ser)
