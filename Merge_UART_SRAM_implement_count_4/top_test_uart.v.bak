@@ -1,0 +1,168 @@
+module top_test_uart (
+    input  wire       CLOCK_50,
+
+    // KEY[1] dÃ¹ng reset active low
+    input  wire [1:0] KEY,
+
+    // UART physical pins
+    input  wire       UART_RXD,
+    output wire       UART_TXD,
+
+    // Debug outputs
+    output wire [3:0] state_led,
+    output wire       rx_valid_led,
+    output wire       tx_busy_led,
+    output wire [17:0] LEDR,
+	 
+	 output wire [6:0] HEX0,
+	 output wire [6:0] HEX1
+);
+
+    // =========================================================
+    // Internal reset
+    // =========================================================
+
+    wire rst_n;
+
+    assign rst_n = KEY[1];
+
+    // =========================================================
+    // UART wires
+    // =========================================================
+
+    wire [7:0] rx_data;
+    wire       rx_valid;
+    wire [1:0] rx_state;
+    wire       tx_busy;
+
+    wire       rx_clear;
+
+    wire [7:0] tx_data;
+    wire       tx_start;
+	 
+	 
+	 //==============================
+	 wire        packet_valid;
+    reg         packet_valid_d;
+    reg  [7:0]  packet_counter;
+    // dummy packet read port
+
+
+    // =========================================================
+    // UART Controller
+    // =========================================================
+
+    uart_controller uart_ctrl_inst (
+        .clk_50m     (CLOCK_50),
+        .rst_n       (rst_n),
+
+        .rx_clear    (rx_clear),
+
+        .rx          (UART_RXD),
+        .tx          (UART_TXD),
+
+        .tx_data_in  (tx_data),
+        .tx_start    (tx_start),
+        .tx_busy     (tx_busy),
+
+        .rx_data_out (rx_data),
+        .rx_valid    (rx_valid),
+        .rx_state    (rx_state)
+    );
+
+    // =========================================================
+    // UART RX Packet - no SDRAM test version
+    // =========================================================
+
+    uart_rx_packet packet_inst (
+        .clk        (CLOCK_50),
+        .rst_n      (rst_n),
+
+        // UART RX
+        .uart_data  (rx_data),
+        .uart_valid (rx_valid),
+
+        .rx_clear   (rx_clear),
+
+        // UART TX
+        .tx_data    (tx_data),
+        .tx_start   (tx_start),
+        .tx_busy    (tx_busy),
+		  .packet_valid    (packet_valid),
+        // Debug LED
+        .LEDR       (LEDR)
+    );
+
+    // =========================================================
+    // Debug LEDs
+    // =========================================================
+	 always @(posedge CLOCK_50 or negedge rst_n)
+    begin
+        if (!rst_n)
+        begin
+            packet_valid_d <= 1'b0;
+            packet_counter <= 8'd0;
+        end
+        else
+        begin
+            packet_valid_d <= packet_valid;
+
+            // rising edge
+            if (packet_valid && !packet_valid_d)
+                packet_counter <= packet_counter + 1'b1;
+        end
+    end
+	 //===========VISUALIZE =======================
+	 
+
+    assign state_led    = {2'b00, rx_state};
+    assign rx_valid_led = rx_valid;
+    assign tx_busy_led  = tx_busy;
+	 
+	 hex7seg h0
+    (
+        .bin(packet_counter[3:0]),
+        .seg(HEX0)
+    );
+
+    hex7seg h1
+    (
+        .bin(packet_counter[7:4]),
+        .seg(HEX1)
+    );
+
+
+endmodule
+
+
+module hex7seg
+(
+    input  wire [3:0] bin,
+    output reg  [6:0] seg
+);
+
+    always @(*)
+    begin
+        case(bin)
+
+        4'h0: seg = 7'b1000000;
+        4'h1: seg = 7'b1111001;
+        4'h2: seg = 7'b0100100;
+        4'h3: seg = 7'b0110000;
+        4'h4: seg = 7'b0011001;
+        4'h5: seg = 7'b0010010;
+        4'h6: seg = 7'b0000010;
+        4'h7: seg = 7'b1111000;
+        4'h8: seg = 7'b0000000;
+        4'h9: seg = 7'b0010000;
+        4'hA: seg = 7'b0001000;
+        4'hB: seg = 7'b0000011;
+        4'hC: seg = 7'b1000110;
+        4'hD: seg = 7'b0100001;
+        4'hE: seg = 7'b0000110;
+        4'hF: seg = 7'b0001110;
+
+        endcase
+    end
+
+endmodule

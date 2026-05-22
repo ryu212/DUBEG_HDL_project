@@ -1,0 +1,704 @@
+Analysis & Synthesis report for UART_SRAM
+Fri May 22 09:18:56 2026
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |top_test_uart|sram_packet_writer:sram_writer_inst|current_state
+ 10. State Machine - |top_test_uart|uart_rx_packet_new:packet_inst|state
+ 11. State Machine - |top_test_uart|uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state
+ 12. State Machine - |top_test_uart|uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Registers Added for RAM Pass-Through Logic
+ 18. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 19. Source assignments for uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0|altsyncram_09c1:auto_generated
+ 20. Parameter Settings for User Entity Instance: uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst
+ 21. Parameter Settings for User Entity Instance: uart_controller:uart_ctrl_inst|uart_tx:tx_inst
+ 22. Parameter Settings for User Entity Instance: uart_controller:uart_ctrl_inst|uart_rx:rx_inst
+ 23. Parameter Settings for Inferred Entity Instance: uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0
+ 24. altsyncram Parameter Settings by Entity Instance
+ 25. Port Connectivity Checks: "SRAM_controller:sram_ctrl_inst"
+ 26. Port Connectivity Checks: "sram_packet_writer:sram_writer_inst"
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri May 22 09:18:56 2026           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; UART_SRAM                                       ;
+; Top-level Entity Name              ; top_test_uart                                   ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 429                                             ;
+;     Total combinational functions  ; 349                                             ;
+;     Dedicated logic registers      ; 255                                             ;
+; Total registers                    ; 255                                             ;
+; Total pins                         ; 89                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 2,048                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; top_test_uart      ; UART_SRAM          ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                            ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+; uart_tx.v                        ; yes             ; User Verilog HDL File        ; D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/uart_tx.v              ;         ;
+; uart_rx.v                        ; yes             ; User Verilog HDL File        ; D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/uart_rx.v              ;         ;
+; uart_controller.v                ; yes             ; User Verilog HDL File        ; D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/uart_controller.v      ;         ;
+; baud_rate_gen.v                  ; yes             ; User Verilog HDL File        ; D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/baud_rate_gen.v        ;         ;
+; top_test_uart.v                  ; yes             ; User Verilog HDL File        ; D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/top_test_uart.v        ;         ;
+; hex7seg.v                        ; yes             ; User Verilog HDL File        ; D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/hex7seg.v              ;         ;
+; uart_rx_packet_new.v             ; yes             ; User Verilog HDL File        ; D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/uart_rx_packet_new.v   ;         ;
+; sram_packet_writer.v             ; yes             ; User Verilog HDL File        ; D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/sram_packet_writer.v   ;         ;
+; SRAM_controller.v                ; yes             ; User Verilog HDL File        ; D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/SRAM_controller.v      ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf                                        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc                                 ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc                                           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc                                        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                                        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc                                         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc                                            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc                                            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc                                          ;         ;
+; db/altsyncram_09c1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/db/altsyncram_09c1.tdf ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 429      ;
+;                                             ;          ;
+; Total combinational functions               ; 349      ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 151      ;
+;     -- 3 input functions                    ; 48       ;
+;     -- <=2 input functions                  ; 150      ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 250      ;
+;     -- arithmetic mode                      ; 99       ;
+;                                             ;          ;
+; Total registers                             ; 255      ;
+;     -- Dedicated logic registers            ; 255      ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 89       ;
+; Total memory bits                           ; 2048     ;
+; Embedded Multiplier 9-bit elements          ; 0        ;
+; Maximum fan-out node                        ; CLOCK_50 ;
+; Maximum fan-out                             ; 204      ;
+; Total fan-out                               ; 2136     ;
+; Average fan-out                             ; 3.05     ;
++---------------------------------------------+----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                  ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------+--------------+
+; |top_test_uart                            ; 349 (12)          ; 255 (13)     ; 2048        ; 0            ; 0       ; 0         ; 89   ; 0            ; |top_test_uart                                                                                       ; work         ;
+;    |hex7seg:hex0_inst|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_test_uart|hex7seg:hex0_inst                                                                     ; work         ;
+;    |hex7seg:hex1_inst|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_test_uart|hex7seg:hex1_inst                                                                     ; work         ;
+;    |hex7seg:hex2_inst|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_test_uart|hex7seg:hex2_inst                                                                     ; work         ;
+;    |sram_packet_writer:sram_writer_inst|  ; 65 (65)           ; 75 (75)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_test_uart|sram_packet_writer:sram_writer_inst                                                   ; work         ;
+;    |uart_controller:uart_ctrl_inst|       ; 90 (0)            ; 70 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_test_uart|uart_controller:uart_ctrl_inst                                                        ; work         ;
+;       |baud_rate_gen:brg_inst|            ; 16 (16)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_test_uart|uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst                                 ; work         ;
+;       |uart_rx:rx_inst|                   ; 46 (46)           ; 38 (38)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_test_uart|uart_controller:uart_ctrl_inst|uart_rx:rx_inst                                        ; work         ;
+;       |uart_tx:tx_inst|                   ; 28 (28)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_test_uart|uart_controller:uart_ctrl_inst|uart_tx:tx_inst                                        ; work         ;
+;    |uart_rx_packet_new:packet_inst|       ; 161 (161)         ; 97 (97)      ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_test_uart|uart_rx_packet_new:packet_inst                                                        ; work         ;
+;       |altsyncram:buffer_rtl_0|           ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_test_uart|uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0                                ; work         ;
+;          |altsyncram_09c1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_test_uart|uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0|altsyncram_09c1:auto_generated ; work         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                     ;
++--------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                             ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++--------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0|altsyncram_09c1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 256          ; 8            ; 256          ; 8            ; 2048 ; None ;
++--------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top_test_uart|sram_packet_writer:sram_writer_inst|current_state                                                                                                   ;
++----------------------------+----------------------+----------------------+--------------------------+----------------------------+----------------------------+--------------------+
+; Name                       ; current_state.FINISH ; current_state.UPDATE ; current_state.SRAM_WRITE ; current_state.WRITE_DATA_2 ; current_state.WRITE_DATA_1 ; current_state.IDLE ;
++----------------------------+----------------------+----------------------+--------------------------+----------------------------+----------------------------+--------------------+
+; current_state.IDLE         ; 0                    ; 0                    ; 0                        ; 0                          ; 0                          ; 0                  ;
+; current_state.WRITE_DATA_1 ; 0                    ; 0                    ; 0                        ; 0                          ; 1                          ; 1                  ;
+; current_state.WRITE_DATA_2 ; 0                    ; 0                    ; 0                        ; 1                          ; 0                          ; 1                  ;
+; current_state.SRAM_WRITE   ; 0                    ; 0                    ; 1                        ; 0                          ; 0                          ; 1                  ;
+; current_state.UPDATE       ; 0                    ; 1                    ; 0                        ; 0                          ; 0                          ; 1                  ;
+; current_state.FINISH       ; 1                    ; 0                    ; 0                        ; 0                          ; 0                          ; 1                  ;
++----------------------------+----------------------+----------------------+--------------------------+----------------------------+----------------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top_test_uart|uart_rx_packet_new:packet_inst|state                                                                                                             ;
++------------------+------------------+-----------------+-----------+------------+----------------+----------------+-----------------+------------+------------------+------------+
+; Name             ; state.CLEAR_IDLE ; state.WAIT_SEND ; state.ACK ; state.NACK ; state.RECOVERY ; state.REC_CRC8 ; state.CLEAR_CRC ; state.DATA ; state.CLEAR_DATA ; state.IDLE ;
++------------------+------------------+-----------------+-----------+------------+----------------+----------------+-----------------+------------+------------------+------------+
+; state.IDLE       ; 0                ; 0               ; 0         ; 0          ; 0              ; 0              ; 0               ; 0          ; 0                ; 0          ;
+; state.CLEAR_DATA ; 0                ; 0               ; 0         ; 0          ; 0              ; 0              ; 0               ; 0          ; 1                ; 1          ;
+; state.DATA       ; 0                ; 0               ; 0         ; 0          ; 0              ; 0              ; 0               ; 1          ; 0                ; 1          ;
+; state.CLEAR_CRC  ; 0                ; 0               ; 0         ; 0          ; 0              ; 0              ; 1               ; 0          ; 0                ; 1          ;
+; state.REC_CRC8   ; 0                ; 0               ; 0         ; 0          ; 0              ; 1              ; 0               ; 0          ; 0                ; 1          ;
+; state.RECOVERY   ; 0                ; 0               ; 0         ; 0          ; 1              ; 0              ; 0               ; 0          ; 0                ; 1          ;
+; state.NACK       ; 0                ; 0               ; 0         ; 1          ; 0              ; 0              ; 0               ; 0          ; 0                ; 1          ;
+; state.ACK        ; 0                ; 0               ; 1         ; 0          ; 0              ; 0              ; 0               ; 0          ; 0                ; 1          ;
+; state.WAIT_SEND  ; 0                ; 1               ; 0         ; 0          ; 0              ; 0              ; 0               ; 0          ; 0                ; 1          ;
+; state.CLEAR_IDLE ; 1                ; 0               ; 0         ; 0          ; 0              ; 0              ; 0               ; 0          ; 0                ; 1          ;
++------------------+------------------+-----------------+-----------+------------+----------------+----------------+-----------------+------------+------------------+------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |top_test_uart|uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state ;
++-------------+------------+------------+-------------+-------------------------------+
+; Name        ; state.STOP ; state.DATA ; state.START ; state.IDLE                    ;
++-------------+------------+------------+-------------+-------------------------------+
+; state.IDLE  ; 0          ; 0          ; 0           ; 0                             ;
+; state.START ; 0          ; 0          ; 1           ; 1                             ;
+; state.DATA  ; 0          ; 1          ; 0           ; 1                             ;
+; state.STOP  ; 1          ; 0          ; 0           ; 1                             ;
++-------------+------------+------------+-------------+-------------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |top_test_uart|uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state ;
++-------------+------------+------------+-------------+-------------------------------+
+; Name        ; state.STOP ; state.DATA ; state.START ; state.IDLE                    ;
++-------------+------------+------------+-------------+-------------------------------+
+; state.IDLE  ; 0          ; 0          ; 0           ; 0                             ;
+; state.START ; 0          ; 0          ; 1           ; 1                             ;
+; state.DATA  ; 0          ; 1          ; 0           ; 1                             ;
+; state.STOP  ; 1          ; 0          ; 0           ; 1                             ;
++-------------+------------+------------+-------------+-------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                       ;
++-------------------------------------------------------------+----------------------------------------------------------------------------+
+; Register name                                               ; Reason for Removal                                                         ;
++-------------------------------------------------------------+----------------------------------------------------------------------------+
+; uart_rx_packet_new:packet_inst|tx_data[3,5..7]              ; Stuck at GND due to stuck port data_in                                     ;
+; uart_rx_packet_new:packet_inst|tx_data[2]                   ; Stuck at VCC due to stuck port data_in                                     ;
+; sram_packet_writer:sram_writer_inst|packet_valid_d          ; Merged with packet_valid_d                                                 ;
+; uart_rx_packet_new:packet_inst|tx_data[4]                   ; Merged with uart_rx_packet_new:packet_inst|tx_data[0]                      ;
+; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|tx_reg[5..7] ; Stuck at GND due to stuck port data_in                                     ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[2]       ; Merged with sram_packet_writer:sram_writer_inst|packet_pd_address_latch[0] ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[16]      ; Merged with sram_packet_writer:sram_writer_inst|packet_pd_address_latch[7] ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[14]      ; Merged with sram_packet_writer:sram_writer_inst|packet_pd_address_latch[6] ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[12]      ; Merged with sram_packet_writer:sram_writer_inst|packet_pd_address_latch[5] ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[10]      ; Merged with sram_packet_writer:sram_writer_inst|packet_pd_address_latch[4] ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[8]       ; Merged with sram_packet_writer:sram_writer_inst|packet_pd_address_latch[3] ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[6]       ; Merged with sram_packet_writer:sram_writer_inst|packet_pd_address_latch[2] ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[4]       ; Merged with sram_packet_writer:sram_writer_inst|packet_pd_address_latch[1] ;
+; sram_packet_writer:sram_writer_inst|current_state~4         ; Lost fanout                                                                ;
+; sram_packet_writer:sram_writer_inst|current_state~5         ; Lost fanout                                                                ;
+; sram_packet_writer:sram_writer_inst|current_state~6         ; Lost fanout                                                                ;
+; uart_rx_packet_new:packet_inst|state~2                      ; Lost fanout                                                                ;
+; uart_rx_packet_new:packet_inst|state~3                      ; Lost fanout                                                                ;
+; uart_rx_packet_new:packet_inst|state~4                      ; Lost fanout                                                                ;
+; uart_rx_packet_new:packet_inst|state~5                      ; Lost fanout                                                                ;
+; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state~4      ; Lost fanout                                                                ;
+; uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state~5      ; Lost fanout                                                                ;
+; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state~4      ; Lost fanout                                                                ;
+; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state~5      ; Lost fanout                                                                ;
+; Total Number of Removed Registers = 29                      ;                                                                            ;
++-------------------------------------------------------------+----------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++-------------------------------------------+---------------------------+----------------------------------------------------------+
+; Register name                             ; Reason for Removal        ; Registers Removed due to This Register                   ;
++-------------------------------------------+---------------------------+----------------------------------------------------------+
+; uart_rx_packet_new:packet_inst|tx_data[7] ; Stuck at GND              ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|tx_reg[7] ;
+;                                           ; due to stuck port data_in ;                                                          ;
+; uart_rx_packet_new:packet_inst|tx_data[6] ; Stuck at GND              ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|tx_reg[6] ;
+;                                           ; due to stuck port data_in ;                                                          ;
+; uart_rx_packet_new:packet_inst|tx_data[5] ; Stuck at GND              ; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|tx_reg[5] ;
+;                                           ; due to stuck port data_in ;                                                          ;
++-------------------------------------------+---------------------------+----------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 255   ;
+; Number of registers using Synchronous Clear  ; 48    ;
+; Number of registers using Synchronous Load   ; 15    ;
+; Number of registers using Asynchronous Clear ; 159   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 115   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------+
+; Inverted Register Statistics                                ;
++---------------------------------------------------+---------+
+; Inverted Register                                 ; Fan out ;
++---------------------------------------------------+---------+
+; uart_controller:uart_ctrl_inst|uart_tx:tx_inst|tx ; 1       ;
+; Total number of inverted registers = 1            ;         ;
++---------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic                                                           ;
++--------------------------------------------------------+---------------------------------------------+
+; Register Name                                          ; RAM Name                                    ;
++--------------------------------------------------------+---------------------------------------------+
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[0]  ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[1]  ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[2]  ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[3]  ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[4]  ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[5]  ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[6]  ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[7]  ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[8]  ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[9]  ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[10] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[11] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[12] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[13] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[14] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[15] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[16] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[17] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[18] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[19] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[20] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[21] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[22] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[23] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
+; uart_rx_packet_new:packet_inst|buffer_rtl_0_bypass[24] ; uart_rx_packet_new:packet_inst|buffer_rtl_0 ;
++--------------------------------------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |top_test_uart|uart_controller:uart_ctrl_inst|uart_rx:rx_inst|valid_timeout_cnt[7] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_test_uart|uart_controller:uart_ctrl_inst|uart_tx:tx_inst|tx_reg[0]            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |top_test_uart|uart_rx_packet_new:packet_inst|crc[1]                               ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_test_uart|uart_controller:uart_ctrl_inst|uart_rx:rx_inst|tick_cnt[0]          ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |top_test_uart|uart_rx_packet_new:packet_inst|timeout_cnt[27]                      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |top_test_uart|uart_controller:uart_ctrl_inst|uart_rx:rx_inst|bit_cnt              ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |top_test_uart|uart_rx_packet_new:packet_inst|buffer                               ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |top_test_uart|sram_packet_writer:sram_writer_inst|Selector10                      ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |top_test_uart|uart_controller:uart_ctrl_inst|uart_tx:tx_inst|state                ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |top_test_uart|uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state.START          ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |top_test_uart|uart_controller:uart_ctrl_inst|uart_rx:rx_inst|state.DATA           ;
+; 13:1               ; 4 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; No         ; |top_test_uart|uart_rx_packet_new:packet_inst|Selector8                            ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |top_test_uart|uart_rx_packet_new:packet_inst|Selector7                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Source assignments for uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0|altsyncram_09c1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                             ;
++---------------------------------+--------------------+------+------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                              ;
++---------------------------------+--------------------+------+------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; OV_MAX_COUNT   ; 54    ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_controller:uart_ctrl_inst|uart_tx:tx_inst ;
++----------------+----------+-----------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                            ;
++----------------+----------+-----------------------------------------------------------------+
+; TIMEOUT_MAX    ; 00010100 ; Unsigned Binary                                                 ;
++----------------+----------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_controller:uart_ctrl_inst|uart_rx:rx_inst ;
++----------------+----------+-----------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                            ;
++----------------+----------+-----------------------------------------------------------------+
+; TIMEOUT_MAX    ; 01100100 ; Unsigned Binary                                                 ;
++----------------+----------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0 ;
++------------------------------------+----------------------+---------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                        ;
++------------------------------------+----------------------+---------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                     ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                              ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                     ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                     ;
+; WIDTH_A                            ; 8                    ; Untyped                                     ;
+; WIDTHAD_A                          ; 8                    ; Untyped                                     ;
+; NUMWORDS_A                         ; 256                  ; Untyped                                     ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                     ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                     ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                     ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                     ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                     ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                     ;
+; WIDTH_B                            ; 8                    ; Untyped                                     ;
+; WIDTHAD_B                          ; 8                    ; Untyped                                     ;
+; NUMWORDS_B                         ; 256                  ; Untyped                                     ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                     ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                     ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                     ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                     ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                     ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                     ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                     ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                     ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                     ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                     ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                     ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                     ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                     ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                     ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                     ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                     ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                     ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                     ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                     ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                     ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                     ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                     ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                     ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                     ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                     ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                     ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                     ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                     ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                     ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                                     ;
+; CBXI_PARAMETER                     ; altsyncram_09c1      ; Untyped                                     ;
++------------------------------------+----------------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                   ;
++-------------------------------------------+--------------------------------------------------------+
+; Name                                      ; Value                                                  ;
++-------------------------------------------+--------------------------------------------------------+
+; Number of entity instances                ; 1                                                      ;
+; Entity Instance                           ; uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                              ;
+;     -- WIDTH_A                            ; 8                                                      ;
+;     -- NUMWORDS_A                         ; 256                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                           ;
+;     -- WIDTH_B                            ; 8                                                      ;
+;     -- NUMWORDS_B                         ; 256                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                 ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                           ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                   ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                              ;
++-------------------------------------------+--------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SRAM_controller:sram_ctrl_inst"                                                        ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; rd_en   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; rd_data ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sram_packet_writer:sram_writer_inst"                                                        ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; write_finish ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri May 22 09:18:54 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off UART_SRAM -c UART_SRAM
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file uart_tx.v
+    Info (12023): Found entity 1: uart_tx
+Info (12021): Found 1 design units, including 1 entities, in source file uart_rx_packet.v
+    Info (12023): Found entity 1: uart_rx_packet
+Info (12021): Found 1 design units, including 1 entities, in source file uart_rx.v
+    Info (12023): Found entity 1: uart_rx
+Info (12021): Found 1 design units, including 1 entities, in source file uart_controller.v
+    Info (12023): Found entity 1: uart_controller
+Info (12021): Found 1 design units, including 1 entities, in source file baud_rate_gen.v
+    Info (12023): Found entity 1: baud_rate_gen
+Info (12021): Found 1 design units, including 1 entities, in source file top_test_uart.v
+    Info (12023): Found entity 1: top_test_uart
+Info (12021): Found 1 design units, including 1 entities, in source file hex7seg.v
+    Info (12023): Found entity 1: hex7seg
+Info (12021): Found 1 design units, including 1 entities, in source file uart_rx_packet_new.v
+    Info (12023): Found entity 1: uart_rx_packet_new
+Info (12021): Found 1 design units, including 1 entities, in source file sram_packet_writer.v
+    Info (12023): Found entity 1: sram_packet_writer
+Info (12021): Found 1 design units, including 1 entities, in source file sram_controller.v
+    Info (12023): Found entity 1: SRAM_controller
+Info (12127): Elaborating entity "top_test_uart" for the top level hierarchy
+Info (12128): Elaborating entity "uart_controller" for hierarchy "uart_controller:uart_ctrl_inst"
+Info (12128): Elaborating entity "baud_rate_gen" for hierarchy "uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst"
+Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_controller:uart_ctrl_inst|uart_tx:tx_inst"
+Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_controller:uart_ctrl_inst|uart_rx:rx_inst"
+Info (12128): Elaborating entity "uart_rx_packet_new" for hierarchy "uart_rx_packet_new:packet_inst"
+Info (12128): Elaborating entity "sram_packet_writer" for hierarchy "sram_packet_writer:sram_writer_inst"
+Info (12128): Elaborating entity "SRAM_controller" for hierarchy "SRAM_controller:sram_ctrl_inst"
+Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:hex0_inst"
+Warning (276020): Inferred RAM node "uart_rx_packet_new:packet_inst|buffer_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "uart_rx_packet_new:packet_inst|buffer_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 8
+        Info (286033): Parameter NUMWORDS_B set to 256
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (12130): Elaborated megafunction instantiation "uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0"
+Info (12133): Instantiated megafunction "uart_rx_packet_new:packet_inst|altsyncram:buffer_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "WIDTH_B" = "8"
+    Info (12134): Parameter "WIDTHAD_B" = "8"
+    Info (12134): Parameter "NUMWORDS_B" = "256"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_09c1.tdf
+    Info (12023): Found entity 1: altsyncram_09c1
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "state_led[2]" is stuck at GND
+    Warning (13410): Pin "state_led[3]" is stuck at GND
+    Warning (13410): Pin "SRAM_OE_N" is stuck at VCC
+    Warning (13410): Pin "SRAM_CE_N" is stuck at GND
+    Warning (13410): Pin "SRAM_UB_N" is stuck at GND
+    Warning (13410): Pin "SRAM_LB_N" is stuck at GND
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/output_files/UART_SRAM.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]"
+Info (21057): Implemented 548 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 69 output pins
+    Info (21060): Implemented 16 bidirectional pins
+    Info (21061): Implemented 451 logic cells
+    Info (21064): Implemented 8 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 4634 megabytes
+    Info: Processing ended: Fri May 22 09:18:56 2026
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/study/HK6/HDL/DoAn/UART_RAM_IMPLEMENT_COUNT/Merge_UART_SRAM_implement_count_3/output_files/UART_SRAM.map.smsg.
+
+

@@ -1,0 +1,93 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'CLOCK_50'
+Slack : -4.091
+TNS   : -421.758
+
+Type  : Slow Model Setup 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick'
+Slack : -2.209
+TNS   : -63.407
+
+Type  : Slow Model Setup 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|uart_tick'
+Slack : -1.228
+TNS   : -9.262
+
+Type  : Slow Model Hold 'CLOCK_50'
+Slack : 0.296
+TNS   : 0.000
+
+Type  : Slow Model Hold 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|uart_tick'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick'
+Slack : -1.437
+TNS   : -12.845
+
+Type  : Slow Model Removal 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick'
+Slack : 2.196
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
+Slack : -1.627
+TNS   : -304.762
+
+Type  : Slow Model Minimum Pulse Width 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick'
+Slack : -0.500
+TNS   : -38.000
+
+Type  : Slow Model Minimum Pulse Width 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|uart_tick'
+Slack : -0.500
+TNS   : -13.000
+
+Type  : Fast Model Setup 'CLOCK_50'
+Slack : -1.872
+TNS   : -107.148
+
+Type  : Fast Model Setup 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick'
+Slack : -0.499
+TNS   : -10.626
+
+Type  : Fast Model Setup 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|uart_tick'
+Slack : -0.082
+TNS   : -0.192
+
+Type  : Fast Model Hold 'CLOCK_50'
+Slack : 0.070
+TNS   : 0.000
+
+Type  : Fast Model Hold 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|uart_tick'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick'
+Slack : -0.323
+TNS   : -2.867
+
+Type  : Fast Model Removal 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick'
+Slack : 1.198
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK_50'
+Slack : -1.627
+TNS   : -304.762
+
+Type  : Fast Model Minimum Pulse Width 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|ov_tick'
+Slack : -0.500
+TNS   : -38.000
+
+Type  : Fast Model Minimum Pulse Width 'uart_controller:uart_ctrl_inst|baud_rate_gen:brg_inst|uart_tick'
+Slack : -0.500
+TNS   : -13.000
+
+------------------------------------------------------------
