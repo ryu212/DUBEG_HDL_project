@@ -22,6 +22,8 @@ module uart_rx(
     reg [2:0] samples  = 3'b000;
     reg [7:0] rx_reg   = 8'b0;
     reg [7:0] valid_timeout_cnt = 8'd0;
+    reg       rx_meta = 1'b1;
+    reg       rx_sync = 1'b1;
 
     assign rx_state = state;
 
@@ -33,7 +35,7 @@ module uart_rx(
         next_state = state;
 
         case(state)
-            IDLE : if(!rx)                              next_state = START;
+            IDLE : if(!rx_sync)                         next_state = START;
             START: if(tick_cnt == 3'd7)                 next_state = DATA;
             DATA : if(tick_cnt == 3'd7 && bit_cnt == 3'd7) next_state = STOP;
             STOP : if(tick_cnt == 3'd7)                 next_state = IDLE;
@@ -51,8 +53,13 @@ module uart_rx(
             rx_reg   <= 8'd0;
             data_out <= 8'd0;
             valid_timeout_cnt <= 8'd0;
+            rx_meta <= 1'b1;
+            rx_sync <= 1'b1;
         end
         else begin
+            rx_meta <= rx;
+            rx_sync <= rx_meta;
+
             if(ov_tick) begin
                 state <= next_state;
 
@@ -79,9 +86,9 @@ module uart_rx(
                         tick_cnt <= tick_cnt + 1'b1;
 
                     DATA: begin
-                        if(tick_cnt == 3'd3) samples[0] <= rx;
-                        if(tick_cnt == 3'd4) samples[1] <= rx;
-                        if(tick_cnt == 3'd5) samples[2] <= rx;
+                        if(tick_cnt == 3'd3) samples[0] <= rx_sync;
+                        if(tick_cnt == 3'd4) samples[1] <= rx_sync;
+                        if(tick_cnt == 3'd5) samples[2] <= rx_sync;
 
                         if(tick_cnt == 3'd7) begin
                             tick_cnt <= 3'd0;

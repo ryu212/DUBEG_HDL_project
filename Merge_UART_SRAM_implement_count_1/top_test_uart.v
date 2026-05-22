@@ -23,6 +23,7 @@ module top_test_uart (
 		output wire        SRAM_UB_N,
 		output wire        SRAM_LB_N,
     output wire [17:0] LEDR,
+    output wire [7:0] LEDG,
 	  output wire [6:0] HEX0,
 	  output wire [6:0] HEX1,
 	  output wire [6:0] HEX2
@@ -122,7 +123,8 @@ module top_test_uart (
 		 .rx_clear         (rx_clear),
 		 .packet_pd_address(packet_pd_address),
 		 .packet_pd_data   (packet_pd_data),
-		 .LEDR             (LEDR)
+		 .LEDR             (LEDR),
+		 .debug_flags      (LEDG)
 	);
 	 // ==========================
 	 // SRAM WRITER

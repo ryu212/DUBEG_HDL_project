@@ -106,12 +106,12 @@ SRAM_DQ[6]                   : AA11      : bidir  : 3.3-V LVTTL       :         
 GND*                         : AA12      :        :                   :         : 8         :                
 LEDR[10]                     : AA13      : output : 3.3-V LVTTL       :         : 7         : Y              
 LEDR[8]                      : AA14      : output : 3.3-V LVTTL       :         : 7         : Y              
-state_led[1]                 : AA15      : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : AA15      :        :                   :         : 7         :                
 GND*                         : AA16      :        :                   :         : 7         :                
 GND*                         : AA17      :        :                   :         : 7         :                
 GND*                         : AA18      :        :                   :         : 7         :                
 VCCA_PLL4                    : AA19      : power  :                   : 1.2V    :           :                
-GND*                         : AA20      :        :                   :         : 7         :                
+LEDG[6]                      : AA20      : output : 3.3-V LVTTL       :         : 7         : Y              
 GND_PLL4                     : AA21      : gnd    :                   :         :           :                
 VCCIO6                       : AA22      : power  :                   : 3.3V    : 6         :                
 HEX1[5]                      : AA23      : output : 3.3-V LVTTL       :         : 6         : Y              
@@ -186,7 +186,7 @@ GND+                         : AD13      :        :                   :         
 GND                          : AD14      : gnd    :                   :         :           :                
 LEDR[12]                     : AD15      : output : 3.3-V LVTTL       :         : 7         : Y              
 GND*                         : AD16      :        :                   :         : 7         :                
-GND*                         : AD17      :        :                   :         : 7         :                
+rx_valid_led                 : AD17      : output : 3.3-V LVTTL       :         : 7         : N              
 GND                          : AD18      : gnd    :                   :         :           :                
 GND*                         : AD19      :        :                   :         : 7         :                
 VCCIO7                       : AD20      : power  :                   : 3.3V    : 7         :                
@@ -211,13 +211,13 @@ LEDR[16]                     : AE12      : output : 3.3-V LVTTL       :         
 LEDR[15]                     : AE13      : output : 3.3-V LVTTL       :         : 8         : Y              
 GND+                         : AE14      :        :                   :         : 7         :                
 LEDR[13]                     : AE15      : output : 3.3-V LVTTL       :         : 7         : Y              
-state_led[0]                 : AE16      : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : AE16      :        :                   :         : 7         :                
 GND*                         : AE17      :        :                   :         : 7         :                
 GND*                         : AE18      :        :                   :         : 7         :                
 GND*                         : AE19      :        :                   :         : 7         :                
 GND*                         : AE20      :        :                   :         : 7         :                
 GND*                         : AE21      :        :                   :         : 7         :                
-GND*                         : AE22      :        :                   :         : 7         :                
+LEDG[0]                      : AE22      : output : 3.3-V LVTTL       :         : 7         : Y              
 LEDR[0]                      : AE23      : output : 3.3-V LVTTL       :         : 7         : Y              
 ~LVDS150p/nCEO~              : AE24      : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : AE25      :        :                   :         : 6         :                
@@ -242,7 +242,7 @@ GND*                         : AF18      :        :                   :         
 GND*                         : AF19      :        :                   :         : 7         :                
 GND*                         : AF20      :        :                   :         : 7         :                
 GND*                         : AF21      :        :                   :         : 7         :                
-GND*                         : AF22      :        :                   :         : 7         :                
+LEDG[1]                      : AF22      : output : 3.3-V LVTTL       :         : 7         : Y              
 LEDR[1]                      : AF23      : output : 3.3-V LVTTL       :         : 7         : Y              
 VCCIO7                       : AF24      : power  :                   : 3.3V    : 7         :                
 GND                          : AF25      : gnd    :                   :         :           :                
@@ -262,7 +262,7 @@ GND+                         : B13       :        :                   :         
 GND*                         : B14       :        :                   :         : 4         :                
 GND*                         : B15       :        :                   :         : 4         :                
 GND*                         : B16       :        :                   :         : 4         :                
-state_led[3]                 : B17       : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : B17       :        :                   :         : 4         :                
 GND*                         : B18       :        :                   :         : 4         :                
 GND*                         : B19       :        :                   :         : 4         :                
 GND*                         : B20       :        :                   :         : 4         :                
@@ -433,7 +433,7 @@ GND*                         : J2        :        :                   :         
 GND*                         : J3        :        :                   :         : 2         :                
 GND*                         : J4        :        :                   :         : 2         :                
 GND*                         : J5        :        :                   :         : 2         :                
-GND*                         : J6        :        :                   :         : 2         :                
+state_led[3]                 : J6        : output : 3.3-V LVTTL       :         : 2         : N              
 GND*                         : J7        :        :                   :         : 2         :                
 GND*                         : J8        :        :                   :         : 2         :                
 GND*                         : J9        :        :                   :         : 3         :                
@@ -459,7 +459,7 @@ GND*                         : K2        :        :                   :         
 GND*                         : K3        :        :                   :         : 2         :                
 GND*                         : K4        :        :                   :         : 2         :                
 GND*                         : K5        :        :                   :         : 2         :                
-state_led[2]                 : K6        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : K6        :        :                   :         : 2         :                
 GND*                         : K7        :        :                   :         : 2         :                
 GND*                         : K8        :        :                   :         : 2         :                
 GND*                         : K9        :        :                   :         : 3         :                
@@ -652,8 +652,8 @@ VCCINT                       : U13       : power  :                   : 1.2V    
 VCCINT                       : U14       : power  :                   : 1.2V    :           :                
 VCCINT                       : U15       : power  :                   : 1.2V    :           :                
 VCCINT                       : U16       : power  :                   : 1.2V    :           :                
-GND*                         : U17       :        :                   :         : 7         :                
-GND*                         : U18       :        :                   :         : 7         :                
+LEDG[5]                      : U17       : output : 3.3-V LVTTL       :         : 7         : Y              
+LEDG[4]                      : U18       : output : 3.3-V LVTTL       :         : 7         : Y              
 GND                          : U19       : gnd    :                   :         :           :                
 GND*                         : U20       :        :                   :         : 6         :                
 GND*                         : U21       :        :                   :         : 6         :                
@@ -667,7 +667,7 @@ GND*                         : V2        :        :                   :         
 GND*                         : V3        :        :                   :         : 1         :                
 GND*                         : V4        :        :                   :         : 1         :                
 GND*                         : V5        :        :                   :         : 1         :                
-GND*                         : V6        :        :                   :         : 1         :                
+state_led[2]                 : V6        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : V7        :        :                   :         : 1         :                
 VCCIO1                       : V8        : power  :                   : 3.3V    : 1         :                
 SRAM_ADDR[11]                : V9        : output : 3.3-V LVTTL       :         : 8         : Y              
@@ -679,7 +679,7 @@ HEX0[5]                      : V14       : output : 3.3-V LVTTL       :         
 VCCIO7                       : V15       : power  :                   : 3.3V    : 7         :                
 VCCINT                       : V16       : power  :                   : 1.2V    :           :                
 GND*                         : V17       :        :                   :         : 7         :                
-GND*                         : V18       :        :                   :         : 7         :                
+LEDG[3]                      : V18       : output : 3.3-V LVTTL       :         : 7         : Y              
 VCCIO6                       : V19       : power  :                   : 3.3V    : 6         :                
 HEX1[0]                      : V20       : output : 3.3-V LVTTL       :         : 6         : Y              
 HEX1[1]                      : V21       : output : 3.3-V LVTTL       :         : 6         : Y              
@@ -689,7 +689,7 @@ GND*                         : V24       :        :                   :         
 GND*                         : V25       :        :                   :         : 6         :                
 GND*                         : V26       :        :                   :         : 6         :                
 GND*                         : W1        :        :                   :         : 1         :                
-GND*                         : W2        :        :                   :         : 1         :                
+state_led[1]                 : W2        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : W3        :        :                   :         : 1         :                
 GND*                         : W4        :        :                   :         : 1         :                
 GND                          : W5        : gnd    :                   :         :           :                
@@ -706,7 +706,7 @@ GND*                         : W15       :        :                   :         
 GND*                         : W16       :        :                   :         : 7         :                
 GND*                         : W17       :        :                   :         : 7         :                
 VCCIO7                       : W18       : power  :                   : 3.3V    : 7         :                
-GND*                         : W19       :        :                   :         : 7         :                
+LEDG[2]                      : W19       : output : 3.3-V LVTTL       :         : 7         : Y              
 GND_PLL4                     : W20       : gnd    :                   :         :           :                
 HEX1[2]                      : W21       : output : 3.3-V LVTTL       :         : 6         : Y              
 GND                          : W22       : gnd    :                   :         :           :                
@@ -725,13 +725,13 @@ GNDA_PLL1                    : Y8        : gnd    :                   :         
 GND                          : Y9        : gnd    :                   :         :           :                
 SRAM_ADDR[15]                : Y10       : output : 3.3-V LVTTL       :         : 8         : Y              
 SRAM_DQ[7]                   : Y11       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
-GND*                         : Y12       :        :                   :         : 8         :                
+state_led[0]                 : Y12       : output : 3.3-V LVTTL       :         : 8         : N              
 LEDR[9]                      : Y13       : output : 3.3-V LVTTL       :         : 7         : Y              
 tx_busy_led                  : Y14       : output : 3.3-V LVTTL       :         : 7         : N              
-rx_valid_led                 : Y15       : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : Y15       :        :                   :         : 7         :                
 GND*                         : Y16       :        :                   :         : 7         :                
 GND                          : Y17       : gnd    :                   :         :           :                
-GND*                         : Y18       :        :                   :         : 7         :                
+LEDG[7]                      : Y18       : output : 3.3-V LVTTL       :         : 7         : Y              
 GNDA_PLL4                    : Y19       : gnd    :                   :         :           :                
 VCCD_PLL4                    : Y20       : power  :                   : 1.2V    :           :                
 GND*                         : Y21       :        :                   :         : 6         :                

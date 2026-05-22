@@ -10,6 +10,8 @@ HEIGHT = 240
 BAUD = 115200
 
 RETRY_DELAY = 0.3
+UART_WRITE_CHUNK = 32
+INTER_CHUNK_DELAY = 0.001
 
 # ==========================================================
 # PACKET FORMAT
@@ -153,10 +155,12 @@ def send_packet_with_retry(
         # clear stale RX
         ser.reset_input_buffer()
 
-        # send packet in one burst so the FPGA does not see OS scheduling
-        # gaps between bytes as an in-packet timeout.
-        ser.write(packet)
-        ser.flush()
+        # Send in small chunks: avoids one-byte OS scheduling gaps, while
+        # keeping the USB-UART FIFO from getting one large opaque burst.
+        for offset in range(0, len(packet), UART_WRITE_CHUNK):
+            ser.write(packet[offset:offset + UART_WRITE_CHUNK])
+            ser.flush()
+            time.sleep(INTER_CHUNK_DELAY)
 
         # wait response
         resp = wait_ack(ser)

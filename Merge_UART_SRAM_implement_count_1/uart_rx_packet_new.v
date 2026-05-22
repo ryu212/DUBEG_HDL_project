@@ -12,7 +12,8 @@ module uart_rx_packet_new
     output reg         rx_clear,
     input  wire [7:0]  packet_pd_address,
     output wire [7:0]  packet_pd_data,
-    output wire [17:0] LEDR
+    output wire [17:0] LEDR,
+    output wire [7:0]  debug_flags
 );
 
     localparam IDLE        = 4'd0;
@@ -38,6 +39,12 @@ module uart_rx_packet_new
     reg [31:0] timeout_cnt;
     reg [31:0] drain_cnt;
     reg        nack_response;
+    reg        header_seen;
+    reg        crc_byte_seen;
+    reg        crc_error_seen;
+    reg        timeout_seen;
+    reg        ack_seen;
+    reg        nack_seen;
     reg [7:0]  buffer [0:255];
 
     wire timeout;
@@ -54,21 +61,17 @@ module uart_rx_packet_new
         input [7:0] data_in;
 
         reg [7:0] crc_temp;
-        reg [7:0] data_temp;
         integer i;
 
         begin
-            crc_temp  = crc_in;
-            data_temp = data_in;
+            crc_temp  = crc_in ^ data_in;
 
             for(i = 0; i < 8; i = i + 1)
             begin
-                if(crc_temp[7] ^ data_temp[7])
+                if(crc_temp[7])
                     crc_temp = {crc_temp[6:0], 1'b0} ^ 8'h07;
                 else
                     crc_temp = {crc_temp[6:0], 1'b0};
-
-                data_temp = {data_temp[6:0], 1'b0};
             end
 
             crc8 = crc_temp;
@@ -181,6 +184,12 @@ module uart_rx_packet_new
             timeout_cnt  <= 32'd0;
             drain_cnt    <= 32'd0;
             nack_response <= 1'b0;
+            header_seen  <= 1'b0;
+            crc_byte_seen <= 1'b0;
+            crc_error_seen <= 1'b0;
+            timeout_seen <= 1'b0;
+            ack_seen     <= 1'b0;
+            nack_seen    <= 1'b0;
             rx_clear     <= 1'b0;
             tx_start     <= 1'b0;
             tx_data      <= 8'd0;
@@ -200,6 +209,16 @@ module uart_rx_packet_new
                     rx_clear     <= 1'b0;
                     tx_start     <= 1'b0;
                     packet_valid <= 1'b0;
+
+                    if(rx_valid && rx_data == 8'hAA)
+                    begin
+                        header_seen <= 1'b1;
+                        crc_byte_seen <= 1'b0;
+                        crc_error_seen <= 1'b0;
+                        timeout_seen <= 1'b0;
+                        ack_seen <= 1'b0;
+                        nack_seen <= 1'b0;
+                    end
                 end
 
                 CLEAR_DATA:
@@ -215,6 +234,9 @@ module uart_rx_packet_new
 
                 DATA:
                 begin
+                    if(timeout)
+                        timeout_seen <= 1'b1;
+
                     if(rx_valid)
                     begin
                         timeout_cnt <= 32'd0;
@@ -242,10 +264,17 @@ module uart_rx_packet_new
 
                 REC_CRC8:
                 begin
+                    if(timeout)
+                        timeout_seen <= 1'b1;
+
                     if(rx_valid)
                     begin
                         timeout_cnt <= 32'd0;
                         crc_rec     <= rx_data;
+                        crc_byte_seen <= 1'b1;
+
+                        if(rx_data != crc_calc)
+                            crc_error_seen <= 1'b1;
                     end
                     else if(!timeout)
                     begin
@@ -263,6 +292,7 @@ module uart_rx_packet_new
                     byte_cnt     <= 8'd0;
                     drain_cnt    <= 32'd0;
                     nack_response <= 1'b1;
+                    nack_seen    <= 1'b1;
                     rx_clear     <= 1'b0;
                     tx_start     <= 1'b0;
                     packet_valid <= 1'b0;
@@ -278,6 +308,7 @@ module uart_rx_packet_new
                     byte_cnt     <= 8'd0;
                     drain_cnt    <= 32'd0;
                     nack_response <= 1'b1;
+                    nack_seen    <= 1'b1;
                     rx_clear     <= 1'b0;
                     tx_start     <= 1'b1;
                     tx_data      <= 8'h15;
@@ -294,6 +325,7 @@ module uart_rx_packet_new
                     byte_cnt     <= 8'd0;
                     drain_cnt    <= 32'd0;
                     nack_response <= 1'b0;
+                    ack_seen     <= 1'b1;
                     rx_clear     <= 1'b0;
                     tx_start     <= 1'b1;
                     tx_data      <= 8'h06;
@@ -370,5 +402,14 @@ module uart_rx_packet_new
     assign LEDR[15]    = tx_start;
     assign LEDR[16]    = packet_valid;
     assign LEDR[17]    = (crc_calc == crc_rec);
+
+    assign debug_flags[0] = header_seen;
+    assign debug_flags[1] = rx_valid;
+    assign debug_flags[2] = timeout_seen;
+    assign debug_flags[3] = crc_error_seen;
+    assign debug_flags[4] = crc_byte_seen;
+    assign debug_flags[5] = ack_seen;
+    assign debug_flags[6] = nack_seen;
+    assign debug_flags[7] = (state == DRAIN_RX);
 
 endmodule
