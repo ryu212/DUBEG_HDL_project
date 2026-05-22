@@ -96,6 +96,20 @@ HEX2[3] <= hex7seg:hex2_inst.seg
 HEX2[4] <= hex7seg:hex2_inst.seg
 HEX2[5] <= hex7seg:hex2_inst.seg
 HEX2[6] <= hex7seg:hex2_inst.seg
+HEX6[0] <= hex7seg:hex6_inst.seg
+HEX6[1] <= hex7seg:hex6_inst.seg
+HEX6[2] <= hex7seg:hex6_inst.seg
+HEX6[3] <= hex7seg:hex6_inst.seg
+HEX6[4] <= hex7seg:hex6_inst.seg
+HEX6[5] <= hex7seg:hex6_inst.seg
+HEX6[6] <= hex7seg:hex6_inst.seg
+HEX7[0] <= hex7seg:hex7_inst.seg
+HEX7[1] <= hex7seg:hex7_inst.seg
+HEX7[2] <= hex7seg:hex7_inst.seg
+HEX7[3] <= hex7seg:hex7_inst.seg
+HEX7[4] <= hex7seg:hex7_inst.seg
+HEX7[5] <= hex7seg:hex7_inst.seg
+HEX7[6] <= hex7seg:hex7_inst.seg
 
 
 |top_test_uart|uart_controller:uart_ctrl_inst
@@ -720,56 +734,48 @@ rx_valid => next_state.OUTPUTSELECT
 rx_data[0] => crc_temp.IN1
 rx_data[0] => Equal3.IN7
 rx_data[0] => crc_rec.DATAB
-rx_data[0] => LEDR[0].DATAIN
 rx_data[0] => Equal1.IN7
 rx_data[0] => buffer.data_a[0].DATAIN
 rx_data[0] => buffer.DATAIN
 rx_data[1] => crc_temp.IN1
 rx_data[1] => Equal3.IN6
 rx_data[1] => crc_rec.DATAB
-rx_data[1] => LEDR[1].DATAIN
 rx_data[1] => Equal1.IN3
 rx_data[1] => buffer.data_a[1].DATAIN
 rx_data[1] => buffer.DATAIN1
 rx_data[2] => crc_temp.IN1
 rx_data[2] => Equal3.IN5
 rx_data[2] => crc_rec.DATAB
-rx_data[2] => LEDR[2].DATAIN
 rx_data[2] => Equal1.IN6
 rx_data[2] => buffer.data_a[2].DATAIN
 rx_data[2] => buffer.DATAIN2
 rx_data[3] => crc_temp.IN1
 rx_data[3] => Equal3.IN4
 rx_data[3] => crc_rec.DATAB
-rx_data[3] => LEDR[3].DATAIN
 rx_data[3] => Equal1.IN2
 rx_data[3] => buffer.data_a[3].DATAIN
 rx_data[3] => buffer.DATAIN3
 rx_data[4] => crc_temp.IN1
 rx_data[4] => Equal3.IN3
 rx_data[4] => crc_rec.DATAB
-rx_data[4] => LEDR[4].DATAIN
 rx_data[4] => Equal1.IN5
 rx_data[4] => buffer.data_a[4].DATAIN
 rx_data[4] => buffer.DATAIN4
 rx_data[5] => crc_temp.IN1
 rx_data[5] => Equal3.IN2
 rx_data[5] => crc_rec.DATAB
-rx_data[5] => LEDR[5].DATAIN
 rx_data[5] => Equal1.IN1
 rx_data[5] => buffer.data_a[5].DATAIN
 rx_data[5] => buffer.DATAIN5
 rx_data[6] => crc_temp.IN1
 rx_data[6] => Equal3.IN1
 rx_data[6] => crc_rec.DATAB
-rx_data[6] => LEDR[6].DATAIN
 rx_data[6] => Equal1.IN4
 rx_data[6] => buffer.data_a[6].DATAIN
 rx_data[6] => buffer.DATAIN6
 rx_data[7] => crc_temp.IN1
 rx_data[7] => Equal3.IN0
 rx_data[7] => crc_rec.DATAB
-rx_data[7] => LEDR[7].DATAIN
 rx_data[7] => Equal1.IN0
 rx_data[7] => buffer.data_a[7].DATAIN
 rx_data[7] => buffer.DATAIN7
@@ -826,14 +832,14 @@ packet_pd_data[4] <= buffer.DATAOUT4
 packet_pd_data[5] <= buffer.DATAOUT5
 packet_pd_data[6] <= buffer.DATAOUT6
 packet_pd_data[7] <= buffer.DATAOUT7
-LEDR[0] <= rx_data[0].DB_MAX_OUTPUT_PORT_TYPE
-LEDR[1] <= rx_data[1].DB_MAX_OUTPUT_PORT_TYPE
-LEDR[2] <= rx_data[2].DB_MAX_OUTPUT_PORT_TYPE
-LEDR[3] <= rx_data[3].DB_MAX_OUTPUT_PORT_TYPE
-LEDR[4] <= rx_data[4].DB_MAX_OUTPUT_PORT_TYPE
-LEDR[5] <= rx_data[5].DB_MAX_OUTPUT_PORT_TYPE
-LEDR[6] <= rx_data[6].DB_MAX_OUTPUT_PORT_TYPE
-LEDR[7] <= rx_data[7].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[0] <= byte_cnt[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= byte_cnt[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= byte_cnt[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= byte_cnt[3].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] <= byte_cnt[4].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[5] <= byte_cnt[5].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[6] <= byte_cnt[6].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[7] <= byte_cnt[7].DB_MAX_OUTPUT_PORT_TYPE
 LEDR[8] <= rx_valid.DB_MAX_OUTPUT_PORT_TYPE
 LEDR[9] <= WideOr17.DB_MAX_OUTPUT_PORT_TYPE
 LEDR[10] <= WideOr16.DB_MAX_OUTPUT_PORT_TYPE
@@ -852,6 +858,14 @@ debug_flags[4] <= crc_byte_seen.DB_MAX_OUTPUT_PORT_TYPE
 debug_flags[5] <= ack_seen.DB_MAX_OUTPUT_PORT_TYPE
 debug_flags[6] <= nack_seen.DB_MAX_OUTPUT_PORT_TYPE
 debug_flags[7] <= debug_flags[7].DB_MAX_OUTPUT_PORT_TYPE
+debug_crc_calc[0] <= crc[0].DB_MAX_OUTPUT_PORT_TYPE
+debug_crc_calc[1] <= crc[1].DB_MAX_OUTPUT_PORT_TYPE
+debug_crc_calc[2] <= crc[2].DB_MAX_OUTPUT_PORT_TYPE
+debug_crc_calc[3] <= crc[3].DB_MAX_OUTPUT_PORT_TYPE
+debug_crc_calc[4] <= crc[4].DB_MAX_OUTPUT_PORT_TYPE
+debug_crc_calc[5] <= crc[5].DB_MAX_OUTPUT_PORT_TYPE
+debug_crc_calc[6] <= crc[6].DB_MAX_OUTPUT_PORT_TYPE
+debug_crc_calc[7] <= crc[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top_test_uart|sram_packet_writer:sram_writer_inst
@@ -1202,6 +1216,34 @@ seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top_test_uart|hex7seg:hex2_inst
+bin[0] => Decoder0.IN3
+bin[1] => Decoder0.IN2
+bin[2] => Decoder0.IN1
+bin[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top_test_uart|hex7seg:hex6_inst
+bin[0] => Decoder0.IN3
+bin[1] => Decoder0.IN2
+bin[2] => Decoder0.IN1
+bin[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top_test_uart|hex7seg:hex7_inst
 bin[0] => Decoder0.IN3
 bin[1] => Decoder0.IN2
 bin[2] => Decoder0.IN1

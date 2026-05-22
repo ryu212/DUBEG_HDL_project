@@ -13,7 +13,8 @@ module uart_rx_packet_new
     input  wire [7:0]  packet_pd_address,
     output wire [7:0]  packet_pd_data,
     output wire [17:0] LEDR,
-    output wire [7:0]  debug_flags
+    output wire [7:0]  debug_flags,
+    output wire [7:0]  debug_crc_calc
 );
 
     localparam IDLE        = 4'd0;
@@ -28,7 +29,7 @@ module uart_rx_packet_new
     localparam CLEAR_IDLE  = 4'd9;
     localparam DRAIN_RX    = 4'd10;
 
-    localparam TIMEOUT_MAX    = 32'd5000000;  // 100 ms @ 50 MHz
+    localparam TIMEOUT_MAX    = 32'd50000000; // 1 s @ 50 MHz
     localparam DRAIN_IDLE_MAX = 32'd1000000;  // 20 ms @ 50 MHz
 
     reg [3:0]  state;
@@ -394,7 +395,7 @@ module uart_rx_packet_new
         end
     end
 
-    assign LEDR[7:0]   = rx_data;
+    assign LEDR[7:0]   = byte_cnt;
     assign LEDR[8]     = rx_valid;
     assign LEDR[12:9]  = state;
     assign LEDR[13]    = timeout;
@@ -411,5 +412,6 @@ module uart_rx_packet_new
     assign debug_flags[5] = ack_seen;
     assign debug_flags[6] = nack_seen;
     assign debug_flags[7] = (state == DRAIN_RX);
+    assign debug_crc_calc = crc_calc;
 
 endmodule

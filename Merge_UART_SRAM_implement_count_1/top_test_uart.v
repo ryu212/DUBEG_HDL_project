@@ -26,7 +26,9 @@ module top_test_uart (
     output wire [7:0] LEDG,
 	  output wire [6:0] HEX0,
 	  output wire [6:0] HEX1,
-	  output wire [6:0] HEX2
+	  output wire [6:0] HEX2,
+	  output wire [6:0] HEX6,
+	  output wire [6:0] HEX7
  );
 
     // =====================================================
@@ -60,6 +62,7 @@ module top_test_uart (
 	 wire [15:0] sram_wr_data;
 	 wire        sram_wr_en;
 	 wire        write_finish;
+	 wire [7:0]  debug_crc_calc;
 	 
 	 // For ram:
 	 wire [15:0] sram_rd_data;
@@ -124,7 +127,8 @@ module top_test_uart (
 		 .packet_pd_address(packet_pd_address),
 		 .packet_pd_data   (packet_pd_data),
 		 .LEDR             (LEDR),
-		 .debug_flags      (LEDG)
+		 .debug_flags      (LEDG),
+		 .debug_crc_calc   (debug_crc_calc)
 	);
 	 // ==========================
 	 // SRAM WRITER
@@ -189,6 +193,16 @@ module top_test_uart (
 	hex7seg hex2_inst(
 		 .bin(packet_cnt[11:8]),
 		 .seg(HEX2)
+	);
+
+	hex7seg hex6_inst(
+		 .bin(debug_crc_calc[3:0]),
+		 .seg(HEX6)
+	);
+
+	hex7seg hex7_inst(
+		 .bin(debug_crc_calc[7:4]),
+		 .seg(HEX7)
 	);
 
 

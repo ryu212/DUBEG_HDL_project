@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="a06c5367e8e2f47cadab"/>
+    <hash md5_digest_80b="814e41dde5683a28de98"/>
   </project>
   <file_info>
     <file device="EP2C35F672C6" path="UART_SRAM.sof" usercode="0xFFFFFFFF"/>

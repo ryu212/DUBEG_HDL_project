@@ -10,8 +10,6 @@ HEIGHT = 240
 BAUD = 115200
 
 RETRY_DELAY = 0.3
-UART_WRITE_CHUNK = 32
-INTER_CHUNK_DELAY = 0.001
 
 # ==========================================================
 # PACKET FORMAT
@@ -154,13 +152,12 @@ def send_packet_with_retry(
 
         # clear stale RX
         ser.reset_input_buffer()
+        ser.reset_output_buffer()
 
-        # Send in small chunks: avoids one-byte OS scheduling gaps, while
-        # keeping the USB-UART FIFO from getting one large opaque burst.
-        for offset in range(0, len(packet), UART_WRITE_CHUNK):
-            ser.write(packet[offset:offset + UART_WRITE_CHUNK])
-            ser.flush()
-            time.sleep(INTER_CHUNK_DELAY)
+        # Let the USB-UART bridge serialize the packet continuously.
+        # Per-byte or per-chunk sleeps can create long host-side gaps.
+        ser.write(packet)
+        ser.flush()
 
         # wait response
         resp = wait_ack(ser)
